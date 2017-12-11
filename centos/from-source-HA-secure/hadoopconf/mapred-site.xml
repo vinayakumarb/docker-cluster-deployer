@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/hadoop</value>
+    </property>
+    <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/hadoop</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/hadoop</value>
+    </property>
+    <property>
+        <name>mapreduce.map.java.opts</name>
+        <value>-Xmx512m</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.java.opts</name>
+        <value>-Xmx512m</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.intermediate-done-dir</name>
+        <value>/mapred/jobhistory/intermediate-done</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.done-dir</name>
+        <value>/mapred/jobhistory/done</value>
+    </property>
+<!-- JHS Security configurations -->
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>vinay-hadoop-master2:10020</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.keytab</name>
+        <value>${user.home}/jhs.${machine-hostname}.keytab</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.principal</name>
+        <value>jhs/_HOST@HADOOP.COM</value>
+    </property>
+</configuration>
