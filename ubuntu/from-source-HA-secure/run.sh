@@ -4,8 +4,8 @@ SCRIPT_NAME=$(basename $BASH_SOURCE)
 DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
-HADOOP_SRC_HOME=/usr1/install/hadoop-3.0.0-src
-HADOOP_VERSION=3.0.0
+HADOOP_SRC_HOME=${HADOOP_SRC_HOME:-/usr1/code/hadoop/trunk}
+HADOOP_VERSION=$(mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
 
 ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.11.tar.gz
 
@@ -48,7 +48,7 @@ function build_hadoop() {
         # Prepare hadoop packages and configuration files
         if [ "$SKIP_MVN" == "false" ]; then
           cur=$(pwd)
-          cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade -Dcontainer-executor.conf.dir=/hadoop/etc/hadoop/ce || exit 1
+          cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade -Dcontainer-executor.conf.dir=/etc/hadoop/ || exit 1
           cd $cur;
         fi
         HADOOP_TARGET_SNAPSHOT=$(hadoop_target)
@@ -128,11 +128,11 @@ cat > tmp/Dockerfile << EOF
         RUN chown root:hadoop $HADOOP_HOME/bin/container-executor
         RUN chmod 6050 $HADOOP_HOME/bin/container-executor
 
-        RUN mkdir -p /hadoop/etc/hadoop/ce
-        RUN chown root:hadoop /hadoop/etc/hadoop/ce
-        RUN mv $HADOOP_HOME/etc/hadoop/container-executor.cfg /hadoop/etc/hadoop/ce
-        RUN chown root:hadoop $HADOOP_HOME/etc/hadoop/ce/container-executor.cfg
-        RUN chmod 0400 $HADOOP_HOME/etc/hadoop/ce/container-executor.cfg
+        RUN mkdir -p /etc/hadoop
+        RUN chown root:root /etc/hadoop
+        RUN mv $HADOOP_HOME/etc/hadoop/container-executor.cfg /etc/hadoop
+        RUN chown root:root /etc/hadoop/container-executor.cfg
+        RUN chmod 0400 /etc/hadoop/container-executor.cfg
 
         EXPOSE 22 2181 9820 8045 8088 8090 8091 9870 9871 9864 9865 9866 9867 
 EOF
@@ -269,7 +269,7 @@ sleep 3
 ###Format the Active namenode and start it
 docker exec -it ${containerIds[1]} /bin/su -c '/bin/bash ${HADOOP_HOME}/bin/hdfs \
     namenode -format -force && rm -f /tmp/hadoop-hdfs-namenode.pid' hdfs
- 
+
 docker exec -it ${containerIds[1]} /bin/su -c '${HADOOP_HOME}/bin/hdfs \
     --daemon start namenode \
     && sleep 3 \
