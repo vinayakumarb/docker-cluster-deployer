@@ -78,7 +78,7 @@
         <name>yarn.nodemanager.keytab</name>
         <value>${user.home}/nm.${machine-hostname}.keytab</value>
     </property>
-    <property>
+    <!--<property>
         <name>yarn.nodemanager.container-executor.class</name>
         <value>org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor</value>
     </property>
@@ -89,7 +89,7 @@
     <property>
         <name>yarn.nodemanager.linux-container-executor.path</name>
         <value>${hadoop.home.dir}/bin/container-executor</value>
-    </property>
+    </property>-->
 <!--Proxy server configurations -->
     <property>
         <name>yarn.web-proxy.address</name>

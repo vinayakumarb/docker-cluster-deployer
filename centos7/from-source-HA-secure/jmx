@@ -1,0 +1,1283 @@
+{
+  "beans" : [ {
+    "name" : "Hadoop:service=NameNode,name=JvmMetrics",
+    "modelerType" : "JvmMetrics",
+    "tag.Context" : "jvm",
+    "tag.ProcessName" : "NameNode",
+    "tag.SessionId" : null,
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "MemNonHeapUsedM" : 52.523666,
+    "MemNonHeapCommittedM" : 53.6875,
+    "MemNonHeapMaxM" : -1.0,
+    "MemHeapUsedM" : 164.02898,
+    "MemHeapCommittedM" : 344.0,
+    "MemHeapMaxM" : 3543.5,
+    "MemMaxM" : 3543.5,
+    "GcCount" : 7,
+    "GcTimeMillis" : 208,
+    "GcNumWarnThresholdExceeded" : 0,
+    "GcNumInfoThresholdExceeded" : 0,
+    "GcTotalExtraSleepTime" : 39,
+    "ThreadsNew" : 0,
+    "ThreadsRunnable" : 8,
+    "ThreadsBlocked" : 0,
+    "ThreadsWaiting" : 9,
+    "ThreadsTimedWaiting" : 40,
+    "ThreadsTerminated" : 0,
+    "LogFatal" : 0,
+    "LogError" : 0,
+    "LogWarn" : 8,
+    "LogInfo" : 209
+  }, {
+    "name" : "JMImplementation:type=MBeanServerDelegate",
+    "modelerType" : "javax.management.MBeanServerDelegate",
+    "MBeanServerId" : "vinay-hadoop-master1_1513083739873",
+    "SpecificationName" : "Java Management Extensions",
+    "SpecificationVersion" : "1.4",
+    "SpecificationVendor" : "Oracle Corporation",
+    "ImplementationName" : "JMX",
+    "ImplementationVersion" : "1.8.0_151-b12",
+    "ImplementationVendor" : "Oracle Corporation"
+  }, {
+    "name" : "java.lang:type=Runtime",
+    "modelerType" : "sun.management.RuntimeImpl",
+    "SpecName" : "Java Virtual Machine Specification",
+    "SpecVendor" : "Oracle Corporation",
+    "SpecVersion" : "1.8",
+    "ManagementSpecVersion" : "1.2",
+    "InputArguments" : [ "-Dproc_namenode", "-Djava.net.preferIPv4Stack=true", "-Dmachine-hostname=vinay-hadoop-master1", "-Dnamenode-id=nn1", "-Dhdfs.audit.logger=INFO,NullAppender", "-Dhadoop.security.logger=INFO,RFAS", "-Dyarn.log.dir=/var/log/hadoop/hdfs", "-Dyarn.log.file=hadoop-hdfs-namenode-vinay-hadoop-master1.log", "-Dyarn.home.dir=/hadoop", "-Dyarn.root.logger=INFO,console", "-Djava.library.path=/hadoop/lib/native", "-Dhadoop.log.dir=/var/log/hadoop/hdfs", "-Dhadoop.log.file=hadoop-hdfs-namenode-vinay-hadoop-master1.log", "-Dhadoop.home.dir=/hadoop", "-Dhadoop.id.str=hdfs", "-Dhadoop.root.logger=INFO,RFA", "-Dhadoop.policy.file=hadoop-policy.xml" ],
+    "SystemProperties" : [ {
+      "key" : "awt.toolkit",
+      "value" : "sun.awt.X11.XToolkit"
+    }, {
+      "key" : "file.encoding.pkg",
+      "value" : "sun.io"
+    }, {
+      "key" : "java.specification.version",
+      "value" : "1.8"
+    }, {
+      "key" : "sun.cpu.isalist",
+      "value" : ""
+    }, {
+      "key" : "sun.jnu.encoding",
+      "value" : "ANSI_X3.4-1968"
+    }, {
+      "key" : "java.class.path",
+      "value" : "/hadoop/etc/hadoop:/hadoop/share/hadoop/common/lib/commons-logging-1.1.3.jar:/hadoop/share/hadoop/common/lib/httpcore-4.4.4.jar:/hadoop/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/hadoop/share/hadoop/common/lib/commons-math3-3.1.1.jar:/hadoop/share/hadoop/common/lib/nimbus-jose-jwt-4.41.1.jar:/hadoop/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/hadoop/share/hadoop/common/lib/commons-lang3-3.4.jar:/hadoop/share/hadoop/common/lib/jersey-server-1.19.jar:/hadoop/share/hadoop/common/lib/guava-11.0.2.jar:/hadoop/share/hadoop/common/lib/kerby-util-1.0.1.jar:/hadoop/share/hadoop/common/lib/commons-lang-2.6.jar:/hadoop/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/hadoop/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/hadoop/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/hadoop/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/hadoop/share/hadoop/common/lib/token-provider-1.0.1.jar:/hadoop/share/hadoop/common/lib/jul-to-slf4j-1.7.25.jar:/hadoop/share/hadoop/common/lib/kerb-common-1.0.1.jar:/hadoop/share/hadoop/common/lib/jackson-annotations-2.7.8.jar:/hadoop/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/hadoop/share/hadoop/common/lib/commons-io-2.4.jar:/hadoop/share/hadoop/common/lib/accessors-smart-1.2.jar:/hadoop/share/hadoop/common/lib/jetty-http-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/log4j-1.2.17.jar:/hadoop/share/hadoop/common/lib/jersey-servlet-1.19.jar:/hadoop/share/hadoop/common/lib/curator-recipes-2.12.0.jar:/hadoop/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/hadoop/share/hadoop/common/lib/metrics-core-3.0.1.jar:/hadoop/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/hadoop/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/hadoop/share/hadoop/common/lib/jetty-xml-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/jetty-security-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/jsp-api-2.1.jar:/hadoop/share/hadoop/common/lib/asm-5.0.4.jar:/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar:/hadoop/share/hadoop/common/lib/netty-3.10.5.Final.jar:/hadoop/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/hadoop/share/hadoop/common/lib/jersey-json-1.19.jar:/hadoop/share/hadoop/common/lib/jetty-webapp-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/hadoop/share/hadoop/common/lib/curator-client-2.12.0.jar:/hadoop/share/hadoop/common/lib/re2j-1.1.jar:/hadoop/share/hadoop/common/lib/jsr305-3.0.0.jar:/hadoop/share/hadoop/common/lib/httpclient-4.5.2.jar:/hadoop/share/hadoop/common/lib/commons-codec-1.11.jar:/hadoop/share/hadoop/common/lib/jackson-core-2.7.8.jar:/hadoop/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-servlet-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/kerb-client-1.0.1.jar:/hadoop/share/hadoop/common/lib/kerb-core-1.0.1.jar:/hadoop/share/hadoop/common/lib/gson-2.2.4.jar:/hadoop/share/hadoop/common/lib/commons-compress-1.4.1.jar:/hadoop/share/hadoop/common/lib/jersey-core-1.19.jar:/hadoop/share/hadoop/common/lib/woodstox-core-5.0.3.jar:/hadoop/share/hadoop/common/lib/json-smart-2.3.jar:/hadoop/share/hadoop/common/lib/hamcrest-core-1.3.jar:/hadoop/share/hadoop/common/lib/jetty-util-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/htrace-core4-4.1.0-incubating.jar:/hadoop/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/hadoop/share/hadoop/common/lib/paranamer-2.3.jar:/hadoop/share/hadoop/common/lib/kerb-server-1.0.1.jar:/hadoop/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/hadoop/share/hadoop/common/lib/curator-framework-2.12.0.jar:/hadoop/share/hadoop/common/lib/avro-1.7.7.jar:/hadoop/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-io-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/hadoop-annotations-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/hadoop/share/hadoop/common/lib/hadoop-auth-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/lib/commons-collections-3.2.2.jar:/hadoop/share/hadoop/common/lib/kerb-util-1.0.1.jar:/hadoop/share/hadoop/common/lib/jsch-0.1.54.jar:/hadoop/share/hadoop/common/lib/stax2-api-3.1.4.jar:/hadoop/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/hadoop/share/hadoop/common/lib/xz-1.0.jar:/hadoop/share/hadoop/common/lib/jettison-1.1.jar:/hadoop/share/hadoop/common/lib/commons-net-3.1.jar:/hadoop/share/hadoop/common/lib/mockito-all-1.8.5.jar:/hadoop/share/hadoop/common/lib/slf4j-api-1.7.25.jar:/hadoop/share/hadoop/common/lib/commons-cli-1.2.jar:/hadoop/share/hadoop/common/lib/snappy-java-1.0.5.jar:/hadoop/share/hadoop/common/lib/kerby-config-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-server-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/junit-4.11.jar:/hadoop/share/hadoop/common/lib/zookeeper-3.4.9.jar:/hadoop/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/hadoop/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/hadoop/share/hadoop/common/hadoop-common-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/common/hadoop-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/hadoop-nfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/hadoop-kms-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs:/hadoop/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/hadoop/share/hadoop/hdfs/lib/httpcore-4.4.4.jar:/hadoop/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/hadoop/share/hadoop/hdfs/lib/nimbus-jose-jwt-4.41.1.jar:/hadoop/share/hadoop/hdfs/lib/okio-1.6.0.jar:/hadoop/share/hadoop/hdfs/lib/commons-beanutils-1.9.3.jar:/hadoop/share/hadoop/hdfs/lib/commons-lang3-3.4.jar:/hadoop/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/hadoop/share/hadoop/hdfs/lib/guava-11.0.2.jar:/hadoop/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/hadoop/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/hadoop/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jackson-annotations-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/jackson-databind-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/commons-io-2.4.jar:/hadoop/share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/hadoop/share/hadoop/hdfs/lib/jetty-http-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/hadoop/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/hadoop/share/hadoop/hdfs/lib/curator-recipes-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/hadoop/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-xml-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/jetty-security-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/asm-5.0.4.jar:/hadoop/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/hadoop/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/hadoop/share/hadoop/hdfs/lib/jetty-webapp-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/hadoop/share/hadoop/hdfs/lib/curator-client-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/re2j-1.1.jar:/hadoop/share/hadoop/hdfs/lib/jsr305-3.0.0.jar:/hadoop/share/hadoop/hdfs/lib/httpclient-4.5.2.jar:/hadoop/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/hadoop/share/hadoop/hdfs/lib/jackson-core-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-servlet-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/gson-2.2.4.jar:/hadoop/share/hadoop/hdfs/lib/commons-compress-1.4.1.jar:/hadoop/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/hadoop/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/hadoop/share/hadoop/hdfs/lib/woodstox-core-5.0.3.jar:/hadoop/share/hadoop/hdfs/lib/json-smart-2.3.jar:/hadoop/share/hadoop/hdfs/lib/jetty-util-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/htrace-core4-4.1.0-incubating.jar:/hadoop/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/paranamer-2.3.jar:/hadoop/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/curator-framework-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/avro-1.7.7.jar:/hadoop/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-io-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/hadoop-annotations-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/hadoop-auth-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/hadoop/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jsch-0.1.54.jar:/hadoop/share/hadoop/hdfs/lib/stax2-api-3.1.4.jar:/hadoop/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/hadoop/share/hadoop/hdfs/lib/xz-1.0.jar:/hadoop/share/hadoop/hdfs/lib/netty-all-4.0.52.Final.jar:/hadoop/share/hadoop/hdfs/lib/jettison-1.1.jar:/hadoop/share/hadoop/hdfs/lib/commons-net-3.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-util-ajax-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/hadoop/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/hadoop/share/hadoop/hdfs/lib/snappy-java-1.0.5.jar:/hadoop/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/hadoop/share/hadoop/hdfs/lib/jetty-server-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/zookeeper-3.4.9.jar:/hadoop/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-nfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/lib/guice-4.0.jar:/hadoop/share/hadoop/yarn/lib/jsp-api-2.1-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/servlet-api-2.5-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/aopalliance-1.0.jar:/hadoop/share/hadoop/yarn/lib/java-util-1.9.0.jar:/hadoop/share/hadoop/yarn/lib/javax.inject-1.jar:/hadoop/share/hadoop/yarn/lib/jsp-2.1-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-base-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/hbase-hadoop2-compat-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-client-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/metrics-core-3.0.1.jar:/hadoop/share/hadoop/yarn/lib/snakeyaml-1.16.jar:/hadoop/share/hadoop/yarn/lib/hbase-annotations-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-server-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/metrics-core-2.2.0.jar:/hadoop/share/hadoop/yarn/lib/commons-csv-1.0.jar:/hadoop/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/hadoop/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/hadoop/share/hadoop/yarn/lib/jasper-compiler-5.5.23.jar:/hadoop/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/hadoop/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/hadoop/share/hadoop/yarn/lib/jasper-runtime-5.5.23.jar:/hadoop/share/hadoop/yarn/lib/jcodings-1.0.8.jar:/hadoop/share/hadoop/yarn/lib/disruptor-3.3.0.jar:/hadoop/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/hadoop/share/hadoop/yarn/lib/findbugs-annotations-1.3.9-1.jar:/hadoop/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/hadoop/share/hadoop/yarn/lib/hbase-common-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/joni-2.1.2.jar:/hadoop/share/hadoop/yarn/lib/commons-el-1.0.jar:/hadoop/share/hadoop/yarn/lib/hbase-procedure-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/fst-2.50.jar:/hadoop/share/hadoop/yarn/lib/hbase-hadoop-compat-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-prefix-tree-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/commons-httpclient-3.1.jar:/hadoop/share/hadoop/yarn/lib/commons-math-2.2.jar:/hadoop/share/hadoop/yarn/lib/jamon-runtime-2.4.1.jar:/hadoop/share/hadoop/yarn/lib/json-io-2.5.1.jar:/hadoop/share/hadoop/yarn/lib/dnsjava-2.1.7.jar:/hadoop/share/hadoop/yarn/lib/htrace-core-3.1.0-incubating.jar:/hadoop/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/hadoop/share/hadoop/yarn/lib/jersey-client-1.19.jar:/hadoop/share/hadoop/yarn/lib/hbase-protocol-1.2.6.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-services-core-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-services-api-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-tests-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-hbase-tests-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-router-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-hbase-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-api-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-registry-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.1.0-SNAPSHOT.jar"
+    }, {
+      "key" : "yarn.home.dir",
+      "value" : "/hadoop"
+    }, {
+      "key" : "java.vm.vendor",
+      "value" : "Oracle Corporation"
+    }, {
+      "key" : "sun.arch.data.model",
+      "value" : "64"
+    }, {
+      "key" : "java.vendor.url",
+      "value" : "http://java.oracle.com/"
+    }, {
+      "key" : "user.timezone",
+      "value" : "Zulu"
+    }, {
+      "key" : "os.name",
+      "value" : "Linux"
+    }, {
+      "key" : "java.vm.specification.version",
+      "value" : "1.8"
+    }, {
+      "key" : "user.country",
+      "value" : "US"
+    }, {
+      "key" : "sun.java.launcher",
+      "value" : "SUN_STANDARD"
+    }, {
+      "key" : "yarn.root.logger",
+      "value" : "INFO,console"
+    }, {
+      "key" : "sun.boot.library.path",
+      "value" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/amd64"
+    }, {
+      "key" : "sun.java.command",
+      "value" : "org.apache.hadoop.hdfs.server.namenode.NameNode"
+    }, {
+      "key" : "hdfs.audit.logger",
+      "value" : "INFO,NullAppender"
+    }, {
+      "key" : "sun.cpu.endian",
+      "value" : "little"
+    }, {
+      "key" : "user.home",
+      "value" : "/home/hdfs"
+    }, {
+      "key" : "user.language",
+      "value" : "en"
+    }, {
+      "key" : "java.specification.vendor",
+      "value" : "Oracle Corporation"
+    }, {
+      "key" : "java.home",
+      "value" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre"
+    }, {
+      "key" : "file.separator",
+      "value" : "/"
+    }, {
+      "key" : "line.separator",
+      "value" : "\n"
+    }, {
+      "key" : "java.vm.specification.vendor",
+      "value" : "Oracle Corporation"
+    }, {
+      "key" : "java.specification.name",
+      "value" : "Java Platform API Specification"
+    }, {
+      "key" : "java.awt.graphicsenv",
+      "value" : "sun.awt.X11GraphicsEnvironment"
+    }, {
+      "key" : "hadoop.security.logger",
+      "value" : "INFO,RFAS"
+    }, {
+      "key" : "namenode-id",
+      "value" : "nn1"
+    }, {
+      "key" : "hadoop.log.dir",
+      "value" : "/var/log/hadoop/hdfs"
+    }, {
+      "key" : "sun.boot.class.path",
+      "value" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/classes"
+    }, {
+      "key" : "yarn.log.dir",
+      "value" : "/var/log/hadoop/hdfs"
+    }, {
+      "key" : "sun.management.compiler",
+      "value" : "HotSpot 64-Bit Tiered Compilers"
+    }, {
+      "key" : "java.runtime.version",
+      "value" : "1.8.0_151-b12"
+    }, {
+      "key" : "hadoop.log.file",
+      "value" : "hadoop-hdfs-namenode-vinay-hadoop-master1.log"
+    }, {
+      "key" : "java.net.preferIPv4Stack",
+      "value" : "true"
+    }, {
+      "key" : "user.name",
+      "value" : "hdfs"
+    }, {
+      "key" : "hadoop.home.dir",
+      "value" : "/hadoop"
+    }, {
+      "key" : "path.separator",
+      "value" : ":"
+    }, {
+      "key" : "hadoop.id.str",
+      "value" : "hdfs"
+    }, {
+      "key" : "os.version",
+      "value" : "4.4.0-103-generic"
+    }, {
+      "key" : "java.endorsed.dirs",
+      "value" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/endorsed"
+    }, {
+      "key" : "java.runtime.name",
+      "value" : "OpenJDK Runtime Environment"
+    }, {
+      "key" : "hadoop.root.logger",
+      "value" : "INFO,RFA"
+    }, {
+      "key" : "file.encoding",
+      "value" : "ANSI_X3.4-1968"
+    }, {
+      "key" : "java.vm.name",
+      "value" : "OpenJDK 64-Bit Server VM"
+    }, {
+      "key" : "java.vendor.url.bug",
+      "value" : "http://bugreport.sun.com/bugreport/"
+    }, {
+      "key" : "java.io.tmpdir",
+      "value" : "/tmp"
+    }, {
+      "key" : "java.version",
+      "value" : "1.8.0_151"
+    }, {
+      "key" : "user.dir",
+      "value" : "/"
+    }, {
+      "key" : "os.arch",
+      "value" : "amd64"
+    }, {
+      "key" : "java.vm.specification.name",
+      "value" : "Java Virtual Machine Specification"
+    }, {
+      "key" : "java.awt.printerjob",
+      "value" : "sun.print.PSPrinterJob"
+    }, {
+      "key" : "hadoop.policy.file",
+      "value" : "hadoop-policy.xml"
+    }, {
+      "key" : "yarn.log.file",
+      "value" : "hadoop-hdfs-namenode-vinay-hadoop-master1.log"
+    }, {
+      "key" : "sun.os.patch.level",
+      "value" : "unknown"
+    }, {
+      "key" : "proc_namenode",
+      "value" : ""
+    }, {
+      "key" : "java.library.path",
+      "value" : "/hadoop/lib/native"
+    }, {
+      "key" : "java.vm.info",
+      "value" : "mixed mode"
+    }, {
+      "key" : "java.vendor",
+      "value" : "Oracle Corporation"
+    }, {
+      "key" : "java.vm.version",
+      "value" : "25.151-b12"
+    }, {
+      "key" : "java.ext.dirs",
+      "value" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/ext:/usr/java/packages/lib/ext"
+    }, {
+      "key" : "sun.io.unicode.encoding",
+      "value" : "UnicodeLittle"
+    }, {
+      "key" : "machine-hostname",
+      "value" : "vinay-hadoop-master1"
+    }, {
+      "key" : "java.class.version",
+      "value" : "52.0"
+    } ],
+    "BootClassPathSupported" : true,
+    "VmName" : "OpenJDK 64-Bit Server VM",
+    "VmVendor" : "Oracle Corporation",
+    "VmVersion" : "25.151-b12",
+    "LibraryPath" : "/hadoop/lib/native",
+    "BootClassPath" : "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el6_9.x86_64/jre/classes",
+    "Uptime" : 172087,
+    "StartTime" : 1513083739240,
+    "Name" : "913@vinay-hadoop-master1",
+    "ClassPath" : "/hadoop/etc/hadoop:/hadoop/share/hadoop/common/lib/commons-logging-1.1.3.jar:/hadoop/share/hadoop/common/lib/httpcore-4.4.4.jar:/hadoop/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/hadoop/share/hadoop/common/lib/commons-math3-3.1.1.jar:/hadoop/share/hadoop/common/lib/nimbus-jose-jwt-4.41.1.jar:/hadoop/share/hadoop/common/lib/commons-beanutils-1.9.3.jar:/hadoop/share/hadoop/common/lib/commons-lang3-3.4.jar:/hadoop/share/hadoop/common/lib/jersey-server-1.19.jar:/hadoop/share/hadoop/common/lib/guava-11.0.2.jar:/hadoop/share/hadoop/common/lib/kerby-util-1.0.1.jar:/hadoop/share/hadoop/common/lib/commons-lang-2.6.jar:/hadoop/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/hadoop/share/hadoop/common/lib/kerb-simplekdc-1.0.1.jar:/hadoop/share/hadoop/common/lib/jcip-annotations-1.0-1.jar:/hadoop/share/hadoop/common/lib/kerby-asn1-1.0.1.jar:/hadoop/share/hadoop/common/lib/token-provider-1.0.1.jar:/hadoop/share/hadoop/common/lib/jul-to-slf4j-1.7.25.jar:/hadoop/share/hadoop/common/lib/kerb-common-1.0.1.jar:/hadoop/share/hadoop/common/lib/jackson-annotations-2.7.8.jar:/hadoop/share/hadoop/common/lib/jackson-databind-2.7.8.jar:/hadoop/share/hadoop/common/lib/commons-io-2.4.jar:/hadoop/share/hadoop/common/lib/accessors-smart-1.2.jar:/hadoop/share/hadoop/common/lib/jetty-http-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/log4j-1.2.17.jar:/hadoop/share/hadoop/common/lib/jersey-servlet-1.19.jar:/hadoop/share/hadoop/common/lib/curator-recipes-2.12.0.jar:/hadoop/share/hadoop/common/lib/jsr311-api-1.1.1.jar:/hadoop/share/hadoop/common/lib/metrics-core-3.0.1.jar:/hadoop/share/hadoop/common/lib/jaxb-api-2.2.11.jar:/hadoop/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/hadoop/share/hadoop/common/lib/jetty-xml-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/jetty-security-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/jsp-api-2.1.jar:/hadoop/share/hadoop/common/lib/asm-5.0.4.jar:/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar:/hadoop/share/hadoop/common/lib/netty-3.10.5.Final.jar:/hadoop/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/hadoop/share/hadoop/common/lib/jersey-json-1.19.jar:/hadoop/share/hadoop/common/lib/jetty-webapp-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/hadoop/share/hadoop/common/lib/curator-client-2.12.0.jar:/hadoop/share/hadoop/common/lib/re2j-1.1.jar:/hadoop/share/hadoop/common/lib/jsr305-3.0.0.jar:/hadoop/share/hadoop/common/lib/httpclient-4.5.2.jar:/hadoop/share/hadoop/common/lib/commons-codec-1.11.jar:/hadoop/share/hadoop/common/lib/jackson-core-2.7.8.jar:/hadoop/share/hadoop/common/lib/kerb-identity-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-servlet-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/kerb-client-1.0.1.jar:/hadoop/share/hadoop/common/lib/kerb-core-1.0.1.jar:/hadoop/share/hadoop/common/lib/gson-2.2.4.jar:/hadoop/share/hadoop/common/lib/commons-compress-1.4.1.jar:/hadoop/share/hadoop/common/lib/jersey-core-1.19.jar:/hadoop/share/hadoop/common/lib/woodstox-core-5.0.3.jar:/hadoop/share/hadoop/common/lib/json-smart-2.3.jar:/hadoop/share/hadoop/common/lib/hamcrest-core-1.3.jar:/hadoop/share/hadoop/common/lib/jetty-util-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/htrace-core4-4.1.0-incubating.jar:/hadoop/share/hadoop/common/lib/kerby-xdr-1.0.1.jar:/hadoop/share/hadoop/common/lib/paranamer-2.3.jar:/hadoop/share/hadoop/common/lib/kerb-server-1.0.1.jar:/hadoop/share/hadoop/common/lib/kerb-admin-1.0.1.jar:/hadoop/share/hadoop/common/lib/curator-framework-2.12.0.jar:/hadoop/share/hadoop/common/lib/avro-1.7.7.jar:/hadoop/share/hadoop/common/lib/kerb-crypto-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-io-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/hadoop-annotations-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/lib/kerby-pkix-1.0.1.jar:/hadoop/share/hadoop/common/lib/hadoop-auth-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/lib/commons-collections-3.2.2.jar:/hadoop/share/hadoop/common/lib/kerb-util-1.0.1.jar:/hadoop/share/hadoop/common/lib/jsch-0.1.54.jar:/hadoop/share/hadoop/common/lib/stax2-api-3.1.4.jar:/hadoop/share/hadoop/common/lib/javax.servlet-api-3.1.0.jar:/hadoop/share/hadoop/common/lib/xz-1.0.jar:/hadoop/share/hadoop/common/lib/jettison-1.1.jar:/hadoop/share/hadoop/common/lib/commons-net-3.1.jar:/hadoop/share/hadoop/common/lib/mockito-all-1.8.5.jar:/hadoop/share/hadoop/common/lib/slf4j-api-1.7.25.jar:/hadoop/share/hadoop/common/lib/commons-cli-1.2.jar:/hadoop/share/hadoop/common/lib/snappy-java-1.0.5.jar:/hadoop/share/hadoop/common/lib/kerby-config-1.0.1.jar:/hadoop/share/hadoop/common/lib/jetty-server-9.3.19.v20170502.jar:/hadoop/share/hadoop/common/lib/junit-4.11.jar:/hadoop/share/hadoop/common/lib/zookeeper-3.4.9.jar:/hadoop/share/hadoop/common/lib/commons-configuration2-2.1.1.jar:/hadoop/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/hadoop/share/hadoop/common/hadoop-common-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/common/hadoop-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/hadoop-nfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/common/hadoop-kms-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs:/hadoop/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/hadoop/share/hadoop/hdfs/lib/httpcore-4.4.4.jar:/hadoop/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/commons-math3-3.1.1.jar:/hadoop/share/hadoop/hdfs/lib/nimbus-jose-jwt-4.41.1.jar:/hadoop/share/hadoop/hdfs/lib/okio-1.6.0.jar:/hadoop/share/hadoop/hdfs/lib/commons-beanutils-1.9.3.jar:/hadoop/share/hadoop/hdfs/lib/commons-lang3-3.4.jar:/hadoop/share/hadoop/hdfs/lib/jersey-server-1.19.jar:/hadoop/share/hadoop/hdfs/lib/guava-11.0.2.jar:/hadoop/share/hadoop/hdfs/lib/kerby-util-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/hadoop/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/kerb-simplekdc-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jcip-annotations-1.0-1.jar:/hadoop/share/hadoop/hdfs/lib/kerby-asn1-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/token-provider-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-common-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jackson-annotations-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/jackson-databind-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/commons-io-2.4.jar:/hadoop/share/hadoop/hdfs/lib/accessors-smart-1.2.jar:/hadoop/share/hadoop/hdfs/lib/jetty-http-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/hadoop/share/hadoop/hdfs/lib/jersey-servlet-1.19.jar:/hadoop/share/hadoop/hdfs/lib/curator-recipes-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/jsr311-api-1.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jaxb-api-2.2.11.jar:/hadoop/share/hadoop/hdfs/lib/json-simple-1.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jaxb-impl-2.2.3-1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-xml-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/jetty-security-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/asm-5.0.4.jar:/hadoop/share/hadoop/hdfs/lib/netty-3.10.5.Final.jar:/hadoop/share/hadoop/hdfs/lib/jackson-jaxrs-1.9.13.jar:/hadoop/share/hadoop/hdfs/lib/jersey-json-1.19.jar:/hadoop/share/hadoop/hdfs/lib/jetty-webapp-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/hadoop/share/hadoop/hdfs/lib/curator-client-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/re2j-1.1.jar:/hadoop/share/hadoop/hdfs/lib/jsr305-3.0.0.jar:/hadoop/share/hadoop/hdfs/lib/httpclient-4.5.2.jar:/hadoop/share/hadoop/hdfs/lib/commons-codec-1.11.jar:/hadoop/share/hadoop/hdfs/lib/jackson-core-2.7.8.jar:/hadoop/share/hadoop/hdfs/lib/kerb-identity-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-servlet-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/kerb-client-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-core-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/gson-2.2.4.jar:/hadoop/share/hadoop/hdfs/lib/commons-compress-1.4.1.jar:/hadoop/share/hadoop/hdfs/lib/jersey-core-1.19.jar:/hadoop/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/hadoop/share/hadoop/hdfs/lib/woodstox-core-5.0.3.jar:/hadoop/share/hadoop/hdfs/lib/json-smart-2.3.jar:/hadoop/share/hadoop/hdfs/lib/jetty-util-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/htrace-core4-4.1.0-incubating.jar:/hadoop/share/hadoop/hdfs/lib/kerby-xdr-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/paranamer-2.3.jar:/hadoop/share/hadoop/hdfs/lib/kerb-server-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/kerb-admin-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/curator-framework-2.12.0.jar:/hadoop/share/hadoop/hdfs/lib/avro-1.7.7.jar:/hadoop/share/hadoop/hdfs/lib/kerb-crypto-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-io-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/hadoop-annotations-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/lib/kerby-pkix-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/hadoop-auth-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/lib/commons-collections-3.2.2.jar:/hadoop/share/hadoop/hdfs/lib/kerb-util-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/jsch-0.1.54.jar:/hadoop/share/hadoop/hdfs/lib/stax2-api-3.1.4.jar:/hadoop/share/hadoop/hdfs/lib/javax.servlet-api-3.1.0.jar:/hadoop/share/hadoop/hdfs/lib/xz-1.0.jar:/hadoop/share/hadoop/hdfs/lib/netty-all-4.0.52.Final.jar:/hadoop/share/hadoop/hdfs/lib/jettison-1.1.jar:/hadoop/share/hadoop/hdfs/lib/commons-net-3.1.jar:/hadoop/share/hadoop/hdfs/lib/jetty-util-ajax-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/hadoop/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/hadoop/share/hadoop/hdfs/lib/snappy-java-1.0.5.jar:/hadoop/share/hadoop/hdfs/lib/kerby-config-1.0.1.jar:/hadoop/share/hadoop/hdfs/lib/okhttp-2.7.5.jar:/hadoop/share/hadoop/hdfs/lib/jetty-server-9.3.19.v20170502.jar:/hadoop/share/hadoop/hdfs/lib/zookeeper-3.4.9.jar:/hadoop/share/hadoop/hdfs/lib/commons-configuration2-2.1.1.jar:/hadoop/share/hadoop/hdfs/lib/jackson-xc-1.9.13.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-httpfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-nfs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-client-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/hdfs/hadoop-hdfs-native-client-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-nativetask-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-app-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-uploader-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.0-SNAPSHOT-tests.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/lib/guice-4.0.jar:/hadoop/share/hadoop/yarn/lib/jsp-api-2.1-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-json-provider-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/servlet-api-2.5-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/aopalliance-1.0.jar:/hadoop/share/hadoop/yarn/lib/java-util-1.9.0.jar:/hadoop/share/hadoop/yarn/lib/javax.inject-1.jar:/hadoop/share/hadoop/yarn/lib/jsp-2.1-6.1.14.jar:/hadoop/share/hadoop/yarn/lib/jackson-jaxrs-base-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/hbase-hadoop2-compat-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-client-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/metrics-core-3.0.1.jar:/hadoop/share/hadoop/yarn/lib/snakeyaml-1.16.jar:/hadoop/share/hadoop/yarn/lib/hbase-annotations-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-server-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/metrics-core-2.2.0.jar:/hadoop/share/hadoop/yarn/lib/commons-csv-1.0.jar:/hadoop/share/hadoop/yarn/lib/guice-servlet-4.0.jar:/hadoop/share/hadoop/yarn/lib/jersey-guice-1.19.jar:/hadoop/share/hadoop/yarn/lib/jasper-compiler-5.5.23.jar:/hadoop/share/hadoop/yarn/lib/mssql-jdbc-6.2.1.jre7.jar:/hadoop/share/hadoop/yarn/lib/jackson-module-jaxb-annotations-2.7.8.jar:/hadoop/share/hadoop/yarn/lib/swagger-annotations-1.5.4.jar:/hadoop/share/hadoop/yarn/lib/jasper-runtime-5.5.23.jar:/hadoop/share/hadoop/yarn/lib/jcodings-1.0.8.jar:/hadoop/share/hadoop/yarn/lib/disruptor-3.3.0.jar:/hadoop/share/hadoop/yarn/lib/geronimo-jcache_1.0_spec-1.0-alpha-1.jar:/hadoop/share/hadoop/yarn/lib/findbugs-annotations-1.3.9-1.jar:/hadoop/share/hadoop/yarn/lib/HikariCP-java7-2.4.12.jar:/hadoop/share/hadoop/yarn/lib/hbase-common-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/joni-2.1.2.jar:/hadoop/share/hadoop/yarn/lib/commons-el-1.0.jar:/hadoop/share/hadoop/yarn/lib/hbase-procedure-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/fst-2.50.jar:/hadoop/share/hadoop/yarn/lib/hbase-hadoop-compat-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/hbase-prefix-tree-1.2.6.jar:/hadoop/share/hadoop/yarn/lib/commons-httpclient-3.1.jar:/hadoop/share/hadoop/yarn/lib/commons-math-2.2.jar:/hadoop/share/hadoop/yarn/lib/jamon-runtime-2.4.1.jar:/hadoop/share/hadoop/yarn/lib/json-io-2.5.1.jar:/hadoop/share/hadoop/yarn/lib/dnsjava-2.1.7.jar:/hadoop/share/hadoop/yarn/lib/htrace-core-3.1.0-incubating.jar:/hadoop/share/hadoop/yarn/lib/ehcache-3.3.1.jar:/hadoop/share/hadoop/yarn/lib/jersey-client-1.19.jar:/hadoop/share/hadoop/yarn/lib/hbase-protocol-1.2.6.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-services-core-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timeline-pluginstorage-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-services-api-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-common-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-client-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-tests-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-hbase-tests-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-router-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-timelineservice-hbase-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-web-proxy-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-nodemanager-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-api-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-registry-3.1.0-SNAPSHOT.jar:/hadoop/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-3.1.0-SNAPSHOT.jar",
+    "ObjectName" : "java.lang:type=Runtime"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=StartupProgress",
+    "modelerType" : "StartupProgress",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "ElapsedTime" : 676,
+    "PercentComplete" : 1.0,
+    "LoadingFsImageCount" : 1,
+    "LoadingFsImageElapsedTime" : 386,
+    "LoadingFsImageTotal" : 1,
+    "LoadingFsImagePercentComplete" : 1.0,
+    "LoadingEditsCount" : 0,
+    "LoadingEditsElapsedTime" : 4,
+    "LoadingEditsTotal" : 0,
+    "LoadingEditsPercentComplete" : 1.0,
+    "SavingCheckpointCount" : 0,
+    "SavingCheckpointElapsedTime" : 0,
+    "SavingCheckpointTotal" : 0,
+    "SavingCheckpointPercentComplete" : 1.0,
+    "SafeModeCount" : 0,
+    "SafeModeElapsedTime" : 9,
+    "SafeModeTotal" : 0,
+    "SafeModePercentComplete" : 1.0
+  }, {
+    "name" : "java.lang:type=Threading",
+    "modelerType" : "sun.management.ThreadImpl",
+    "ThreadAllocatedMemorySupported" : true,
+    "ThreadAllocatedMemoryEnabled" : true,
+    "ThreadContentionMonitoringSupported" : true,
+    "CurrentThreadCpuTimeSupported" : true,
+    "ObjectMonitorUsageSupported" : true,
+    "SynchronizerUsageSupported" : true,
+    "ThreadCpuTimeEnabled" : true,
+    "PeakThreadCount" : 65,
+    "DaemonThreadCount" : 52,
+    "TotalStartedThreadCount" : 90,
+    "ThreadCpuTimeSupported" : true,
+    "CurrentThreadCpuTime" : 71731039,
+    "CurrentThreadUserTime" : 60000000,
+    "ThreadCount" : 57,
+    "ThreadContentionMonitoringEnabled" : false,
+    "AllThreadIds" : [ 98, 97, 96, 89, 88, 87, 86, 85, 84, 82, 79, 68, 67, 66, 65, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 42, 45, 30, 29, 28, 31, 48, 47, 44, 43, 33, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 4, 3, 2, 1 ],
+    "ObjectName" : "java.lang:type=Threading"
+  }, {
+    "name" : "java.lang:type=OperatingSystem",
+    "modelerType" : "sun.management.OperatingSystemImpl",
+    "OpenFileDescriptorCount" : 314,
+    "MaxFileDescriptorCount" : 1048576,
+    "CommittedVirtualMemorySize" : 6155890688,
+    "TotalSwapSpaceSize" : 9998168064,
+    "FreeSwapSpaceSize" : 9998168064,
+    "ProcessCpuTime" : 8620000000,
+    "FreePhysicalMemorySize" : 8999772160,
+    "TotalPhysicalMemorySize" : 16710463488,
+    "SystemCpuLoad" : 0.02191128796663196,
+    "ProcessCpuLoad" : 1.3866885619750048E-4,
+    "Arch" : "amd64",
+    "SystemLoadAverage" : 0.7,
+    "AvailableProcessors" : 4,
+    "Version" : "4.4.0-103-generic",
+    "Name" : "Linux",
+    "ObjectName" : "java.lang:type=OperatingSystem"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=FSNamesystem",
+    "modelerType" : "FSNamesystem",
+    "tag.Context" : "dfs",
+    "tag.HAState" : "active",
+    "tag.TotalSyncTimes" : "3 9 ",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "MissingBlocks" : 0,
+    "MissingReplOneBlocks" : 0,
+    "ExpiredHeartbeats" : 0,
+    "TransactionsSinceLastCheckpoint" : 25,
+    "TransactionsSinceLastLogRoll" : 1,
+    "LastWrittenTransactionId" : 25,
+    "LastCheckpointTime" : 1513083739000,
+    "CapacityTotal" : 285622591488,
+    "CapacityTotalGB" : 266.0,
+    "CapacityUsed" : 73728,
+    "CapacityUsedGB" : 0.0,
+    "CapacityRemaining" : 146770833408,
+    "CapacityRemainingGB" : 137.0,
+    "CapacityUsedNonDFS" : 124272021504,
+    "TotalLoad" : 3,
+    "SnapshottableDirectories" : 0,
+    "Snapshots" : 0,
+    "NumEncryptionZones" : 0,
+    "LockQueueLength" : 0,
+    "BlocksTotal" : 0,
+    "NumFilesUnderConstruction" : 0,
+    "NumActiveClients" : 0,
+    "FilesTotal" : 9,
+    "PendingReplicationBlocks" : 0,
+    "PendingReconstructionBlocks" : 0,
+    "UnderReplicatedBlocks" : 0,
+    "LowRedundancyBlocks" : 0,
+    "CorruptBlocks" : 0,
+    "ScheduledReplicationBlocks" : 0,
+    "PendingDeletionBlocks" : 0,
+    "LowRedundancyReplicatedBlocks" : 0,
+    "CorruptReplicatedBlocks" : 0,
+    "MissingReplicatedBlocks" : 0,
+    "MissingReplicationOneBlocks" : 0,
+    "BytesInFutureReplicatedBlocks" : 0,
+    "PendingDeletionReplicatedBlocks" : 0,
+    "TotalReplicatedBlocks" : 0,
+    "LowRedundancyECBlockGroups" : 0,
+    "CorruptECBlockGroups" : 0,
+    "MissingECBlockGroups" : 0,
+    "BytesInFutureECBlockGroups" : 0,
+    "PendingDeletionECBlocks" : 0,
+    "TotalECBlockGroups" : 0,
+    "ExcessBlocks" : 0,
+    "NumTimedOutPendingReconstructions" : 0,
+    "PostponedMisreplicatedBlocks" : 0,
+    "PendingDataNodeMessageCount" : 0,
+    "MillisSinceLastLoadedEdits" : 0,
+    "BlockCapacity" : 8388608,
+    "NumLiveDataNodes" : 3,
+    "NumDeadDataNodes" : 0,
+    "NumDecomLiveDataNodes" : 0,
+    "NumDecomDeadDataNodes" : 0,
+    "VolumeFailuresTotal" : 0,
+    "EstimatedCapacityLostTotal" : 0,
+    "NumDecommissioningDataNodes" : 0,
+    "StaleDataNodes" : 0,
+    "NumStaleStorages" : 0,
+    "TotalSyncCount" : 1,
+    "NumInMaintenanceLiveDataNodes" : 0,
+    "NumInMaintenanceDeadDataNodes" : 0,
+    "NumEnteringMaintenanceDataNodes" : 0
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=Code Cache",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 8585216,
+      "init" : 2555904,
+      "max" : 251658240,
+      "used" : 8456576
+    },
+    "PeakUsage" : {
+      "committed" : 8585216,
+      "init" : 2555904,
+      "max" : 251658240,
+      "used" : 8475968
+    },
+    "MemoryManagerNames" : [ "CodeCacheManager" ],
+    "UsageThreshold" : 0,
+    "UsageThresholdExceeded" : false,
+    "UsageThresholdCount" : 0,
+    "UsageThresholdSupported" : true,
+    "CollectionUsage" : null,
+    "CollectionUsageThresholdSupported" : false,
+    "Valid" : true,
+    "Name" : "Code Cache",
+    "Type" : "NON_HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=Code Cache"
+  }, {
+    "name" : "java.nio:type=BufferPool,name=direct",
+    "modelerType" : "sun.management.ManagementFactoryHelper$1",
+    "TotalCapacity" : 1245472,
+    "MemoryUsed" : 1245472,
+    "Count" : 44,
+    "Name" : "direct",
+    "ObjectName" : "java.nio:type=BufferPool,name=direct"
+  }, {
+    "name" : "java.lang:type=Compilation",
+    "modelerType" : "sun.management.CompilationImpl",
+    "TotalCompilationTime" : 4917,
+    "CompilationTimeMonitoringSupported" : true,
+    "Name" : "HotSpot 64-Bit Tiered Compilers",
+    "ObjectName" : "java.lang:type=Compilation"
+  }, {
+    "name" : "java.lang:type=MemoryManager,name=CodeCacheManager",
+    "modelerType" : "sun.management.MemoryManagerImpl",
+    "MemoryPoolNames" : [ "Code Cache" ],
+    "Valid" : true,
+    "Name" : "CodeCacheManager",
+    "ObjectName" : "java.lang:type=MemoryManager,name=CodeCacheManager"
+  }, {
+    "name" : "java.util.logging:type=Logging",
+    "modelerType" : "sun.management.ManagementFactoryHelper$PlatformLoggingImpl",
+    "ObjectName" : "java.util.logging:type=Logging",
+    "LoggerNames" : [ "javax.management.snmp.daemon", "javax.security.sasl", "javax.management.notification", "com.google.common.cache.CacheBuilder", "com.google.common.util.concurrent.ExecutionList", "javax.management.misc", "javax.management", "javax.management.relation", "com.google.common.util.concurrent.UncaughtExceptionHandlers$Exiter", "global", "javax.management.snmp", "javax.management.mbeanserver", "javax.management.modelmbean", "javax.management.mlet", "javax.management.timer", "com.google.common.cache.LocalCache", "", "javax.management.monitor" ]
+  }, {
+    "name" : "java.lang:type=ClassLoading",
+    "modelerType" : "sun.management.ClassLoadingImpl",
+    "TotalLoadedClassCount" : 6318,
+    "Verbose" : false,
+    "LoadedClassCount" : 6317,
+    "UnloadedClassCount" : 1,
+    "ObjectName" : "java.lang:type=ClassLoading"
+  }, {
+    "name" : "java.lang:type=MemoryManager,name=Metaspace Manager",
+    "modelerType" : "sun.management.MemoryManagerImpl",
+    "MemoryPoolNames" : [ "Metaspace", "Compressed Class Space" ],
+    "Valid" : true,
+    "Name" : "Metaspace Manager",
+    "ObjectName" : "java.lang:type=MemoryManager,name=Metaspace Manager"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=RpcActivityForPort9820",
+    "modelerType" : "RpcActivityForPort9820",
+    "tag.port" : "9820",
+    "tag.Context" : "rpc",
+    "tag.NumOpenConnectionsPerUser" : "{\"hdfs\":4}",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "ReceivedBytes" : 124551,
+    "SentBytes" : 31341,
+    "RpcQueueTimeNumOps" : 514,
+    "RpcQueueTimeAvgTime" : 0.9649805447470817,
+    "RpcProcessingTimeNumOps" : 514,
+    "RpcProcessingTimeAvgTime" : 2.406614785992218,
+    "DeferredRpcProcessingTimeNumOps" : 0,
+    "DeferredRpcProcessingTimeAvgTime" : 0.0,
+    "RpcAuthenticationFailures" : 0,
+    "RpcAuthenticationSuccesses" : 23,
+    "RpcAuthorizationFailures" : 0,
+    "RpcAuthorizationSuccesses" : 23,
+    "RpcClientBackoff" : 0,
+    "RpcSlowCalls" : 0,
+    "NumOpenConnections" : 4,
+    "CallQueueLength" : 0,
+    "NumDroppedConnections" : 0
+  }, {
+    "name" : "Hadoop:service=NameNode,name=ECBlockGroupsState",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
+    "LowRedundancyECBlockGroups" : 0,
+    "CorruptECBlockGroups" : 0,
+    "MissingECBlockGroups" : 0,
+    "BytesInFutureECBlockGroups" : 0,
+    "PendingDeletionECBlocks" : 0,
+    "TotalECBlockGroups" : 0
+  }, {
+    "name" : "java.lang:type=GarbageCollector,name=PS MarkSweep",
+    "modelerType" : "sun.management.GarbageCollectorImpl",
+    "LastGcInfo" : {
+      "GcThreadCount" : 4,
+      "duration" : 101,
+      "endTime" : 6232,
+      "id" : 2,
+      "memoryUsageAfterGc" : [ {
+        "key" : "Compressed Class Space",
+        "value" : {
+          "committed" : 4063232,
+          "init" : 0,
+          "max" : 1073741824,
+          "used" : 3891984
+        }
+      }, {
+        "key" : "PS Survivor Space",
+        "value" : {
+          "committed" : 10485760,
+          "init" : 10485760,
+          "max" : 10485760,
+          "used" : 0
+        }
+      }, {
+        "key" : "PS Old Gen",
+        "value" : {
+          "committed" : 240648192,
+          "init" : 175112192,
+          "max" : 2786590720,
+          "used" : 70524664
+        }
+      }, {
+        "key" : "Metaspace",
+        "value" : {
+          "committed" : 36306944,
+          "init" : 0,
+          "max" : -1,
+          "used" : 35711880
+        }
+      }, {
+        "key" : "PS Eden Space",
+        "value" : {
+          "committed" : 109576192,
+          "init" : 66060288,
+          "max" : 1365245952,
+          "used" : 0
+        }
+      }, {
+        "key" : "Code Cache",
+        "value" : {
+          "committed" : 6815744,
+          "init" : 2555904,
+          "max" : 251658240,
+          "used" : 6685184
+        }
+      } ],
+      "memoryUsageBeforeGc" : [ {
+        "key" : "Compressed Class Space",
+        "value" : {
+          "committed" : 4063232,
+          "init" : 0,
+          "max" : 1073741824,
+          "used" : 3892536
+        }
+      }, {
+        "key" : "PS Survivor Space",
+        "value" : {
+          "committed" : 10485760,
+          "init" : 10485760,
+          "max" : 10485760,
+          "used" : 10482304
+        }
+      }, {
+        "key" : "PS Old Gen",
+        "value" : {
+          "committed" : 113770496,
+          "init" : 175112192,
+          "max" : 2786590720,
+          "used" : 63256832
+        }
+      }, {
+        "key" : "Metaspace",
+        "value" : {
+          "committed" : 36306944,
+          "init" : 0,
+          "max" : -1,
+          "used" : 35715688
+        }
+      }, {
+        "key" : "PS Eden Space",
+        "value" : {
+          "committed" : 109576192,
+          "init" : 66060288,
+          "max" : 1365245952,
+          "used" : 0
+        }
+      }, {
+        "key" : "Code Cache",
+        "value" : {
+          "committed" : 6815744,
+          "init" : 2555904,
+          "max" : 251658240,
+          "used" : 6685184
+        }
+      } ],
+      "startTime" : 6131
+    },
+    "CollectionCount" : 2,
+    "CollectionTime" : 126,
+    "MemoryPoolNames" : [ "PS Eden Space", "PS Survivor Space", "PS Old Gen" ],
+    "Valid" : true,
+    "Name" : "PS MarkSweep",
+    "ObjectName" : "java.lang:type=GarbageCollector,name=PS MarkSweep"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-172.18.0.4-8485",
+    "modelerType" : "IPCLoggerChannel-172.18.0.4-8485",
+    "tag.Context" : "dfs",
+    "tag.IsOutOfSync" : "false",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "QueuedEditsSize" : 0,
+    "LagTimeMillis" : 2,
+    "CurrentLagTxns" : 0
+  }, {
+    "name" : "Hadoop:service=NameNode,name=MetricsSystem,sub=Stats",
+    "modelerType" : "MetricsSystem,sub=Stats",
+    "tag.Context" : "metricssystem",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "NumActiveSources" : 12,
+    "NumAllSources" : 12,
+    "NumActiveSinks" : 0,
+    "NumAllSinks" : 0,
+    "SnapshotNumOps" : 0,
+    "SnapshotAvgTime" : 0.0,
+    "PublishNumOps" : 0,
+    "PublishAvgTime" : 0.0,
+    "DroppedPubAll" : 0
+  }, {
+    "name" : "Hadoop:service=NameNode,name=MetricsSystem,sub=Control",
+    "modelerType" : "org.apache.hadoop.metrics2.impl.MetricsSystemImpl"
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=Metaspace",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 43253760,
+      "init" : 0,
+      "max" : -1,
+      "used" : 42425640
+    },
+    "PeakUsage" : {
+      "committed" : 43253760,
+      "init" : 0,
+      "max" : -1,
+      "used" : 42425640
+    },
+    "MemoryManagerNames" : [ "Metaspace Manager" ],
+    "UsageThreshold" : 0,
+    "UsageThresholdExceeded" : false,
+    "UsageThresholdCount" : 0,
+    "UsageThresholdSupported" : true,
+    "CollectionUsage" : null,
+    "CollectionUsageThresholdSupported" : false,
+    "Valid" : true,
+    "Name" : "Metaspace",
+    "Type" : "NON_HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=Metaspace"
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=PS Old Gen",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 240648192,
+      "init" : 175112192,
+      "max" : 2786590720,
+      "used" : 70524664
+    },
+    "PeakUsage" : {
+      "committed" : 240648192,
+      "init" : 175112192,
+      "max" : 2786590720,
+      "used" : 70524664
+    },
+    "MemoryManagerNames" : [ "PS MarkSweep" ],
+    "UsageThreshold" : 0,
+    "UsageThresholdExceeded" : false,
+    "UsageThresholdCount" : 0,
+    "UsageThresholdSupported" : true,
+    "CollectionUsageThreshold" : 0,
+    "CollectionUsageThresholdExceeded" : false,
+    "CollectionUsageThresholdCount" : 0,
+    "CollectionUsage" : {
+      "committed" : 240648192,
+      "init" : 175112192,
+      "max" : 2786590720,
+      "used" : 70524664
+    },
+    "CollectionUsageThresholdSupported" : true,
+    "Valid" : true,
+    "Name" : "PS Old Gen",
+    "Type" : "HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=PS Old Gen"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=NameNodeActivity",
+    "modelerType" : "NameNodeActivity",
+    "tag.ProcessName" : "NameNode",
+    "tag.SessionId" : null,
+    "tag.Context" : "dfs",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "CreateFileOps" : 0,
+    "FilesCreated" : 8,
+    "FilesAppended" : 0,
+    "GetBlockLocations" : 0,
+    "FilesRenamed" : 0,
+    "FilesTruncated" : 0,
+    "GetListingOps" : 15,
+    "DeleteFileOps" : 0,
+    "FilesDeleted" : 0,
+    "FileInfoOps" : 18,
+    "AddBlockOps" : 0,
+    "GetAdditionalDatanodeOps" : 0,
+    "CreateSymlinkOps" : 0,
+    "GetLinkTargetOps" : 0,
+    "FilesInGetListingOps" : 12,
+    "SuccessfulReReplications" : 0,
+    "NumTimesReReplicationNotScheduled" : 0,
+    "TimeoutReReplications" : 0,
+    "AllowSnapshotOps" : 0,
+    "DisallowSnapshotOps" : 0,
+    "CreateSnapshotOps" : 0,
+    "DeleteSnapshotOps" : 0,
+    "RenameSnapshotOps" : 0,
+    "ListSnapshottableDirOps" : 0,
+    "SnapshotDiffReportOps" : 0,
+    "BlockReceivedAndDeletedOps" : 0,
+    "BlockOpsQueued" : 1,
+    "BlockOpsBatched" : 0,
+    "TransactionsNumOps" : 25,
+    "TransactionsAvgTime" : 0.52,
+    "SyncsNumOps" : 21,
+    "SyncsAvgTime" : 7.190476190476191,
+    "TransactionsBatchedInSync" : 4,
+    "StorageBlockReportNumOps" : 3,
+    "StorageBlockReportAvgTime" : 0.6666666666666666,
+    "CacheReportNumOps" : 0,
+    "CacheReportAvgTime" : 0.0,
+    "GenerateEDEKTimeNumOps" : 0,
+    "GenerateEDEKTimeAvgTime" : 0.0,
+    "WarmUpEDEKTimeNumOps" : 0,
+    "WarmUpEDEKTimeAvgTime" : 0.0,
+    "ResourceCheckTimeNumOps" : 201,
+    "ResourceCheckTimeAvgTime" : 0.07462686567164178,
+    "SafeModeTime" : 0,
+    "FsImageLoadTime" : 412,
+    "GetEditNumOps" : 0,
+    "GetEditAvgTime" : 0.0,
+    "GetImageNumOps" : 1,
+    "GetImageAvgTime" : 4.0,
+    "PutImageNumOps" : 0,
+    "PutImageAvgTime" : 0.0,
+    "TotalFileOps" : 33
+  }, {
+    "name" : "Hadoop:service=NameNode,name=NNTopUserOpCounts",
+    "modelerType" : "NNTopUserOpCounts",
+    "tag.Context" : "dfs",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "tag.Context.1" : "dfs",
+    "tag.Hostname.1" : "vinay-hadoop-master1",
+    "tag.Context.2" : "dfs",
+    "tag.Hostname.2" : "vinay-hadoop-master1"
+  }, {
+    "name" : "java.lang:type=GarbageCollector,name=PS Scavenge",
+    "modelerType" : "sun.management.GarbageCollectorImpl",
+    "LastGcInfo" : {
+      "GcThreadCount" : 4,
+      "duration" : 12,
+      "endTime" : 6131,
+      "id" : 5,
+      "memoryUsageAfterGc" : [ {
+        "key" : "Compressed Class Space",
+        "value" : {
+          "committed" : 4063232,
+          "init" : 0,
+          "max" : 1073741824,
+          "used" : 3892536
+        }
+      }, {
+        "key" : "PS Survivor Space",
+        "value" : {
+          "committed" : 10485760,
+          "init" : 10485760,
+          "max" : 10485760,
+          "used" : 10482304
+        }
+      }, {
+        "key" : "PS Old Gen",
+        "value" : {
+          "committed" : 113770496,
+          "init" : 175112192,
+          "max" : 2786590720,
+          "used" : 63256832
+        }
+      }, {
+        "key" : "Metaspace",
+        "value" : {
+          "committed" : 36306944,
+          "init" : 0,
+          "max" : -1,
+          "used" : 35715688
+        }
+      }, {
+        "key" : "PS Eden Space",
+        "value" : {
+          "committed" : 109576192,
+          "init" : 66060288,
+          "max" : 1365245952,
+          "used" : 0
+        }
+      }, {
+        "key" : "Code Cache",
+        "value" : {
+          "committed" : 6815744,
+          "init" : 2555904,
+          "max" : 251658240,
+          "used" : 6685184
+        }
+      } ],
+      "memoryUsageBeforeGc" : [ {
+        "key" : "Compressed Class Space",
+        "value" : {
+          "committed" : 4063232,
+          "init" : 0,
+          "max" : 1073741824,
+          "used" : 3892536
+        }
+      }, {
+        "key" : "PS Survivor Space",
+        "value" : {
+          "committed" : 10485760,
+          "init" : 10485760,
+          "max" : 10485760,
+          "used" : 9642544
+        }
+      }, {
+        "key" : "PS Old Gen",
+        "value" : {
+          "committed" : 113770496,
+          "init" : 175112192,
+          "max" : 2786590720,
+          "used" : 58445368
+        }
+      }, {
+        "key" : "Metaspace",
+        "value" : {
+          "committed" : 36306944,
+          "init" : 0,
+          "max" : -1,
+          "used" : 35715688
+        }
+      }, {
+        "key" : "PS Eden Space",
+        "value" : {
+          "committed" : 109576192,
+          "init" : 66060288,
+          "max" : 1372061696,
+          "used" : 107381168
+        }
+      }, {
+        "key" : "Code Cache",
+        "value" : {
+          "committed" : 6815744,
+          "init" : 2555904,
+          "max" : 251658240,
+          "used" : 6685184
+        }
+      } ],
+      "startTime" : 6119
+    },
+    "CollectionCount" : 5,
+    "CollectionTime" : 82,
+    "MemoryPoolNames" : [ "PS Eden Space", "PS Survivor Space" ],
+    "Valid" : true,
+    "Name" : "PS Scavenge",
+    "ObjectName" : "java.lang:type=GarbageCollector,name=PS Scavenge"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=NameNodeStatus",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.NameNode",
+    "NNRole" : "NameNode",
+    "HostAndPort" : "vinay-hadoop-master1:9820",
+    "SecurityEnabled" : true,
+    "LastHATransitionTime" : 1513083745960,
+    "BytesWithFutureGenerationStamps" : 0,
+    "SlowPeersReport" : null,
+    "SlowDisksReport" : null,
+    "State" : "active"
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=PS Eden Space",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 109576192,
+      "init" : 66060288,
+      "max" : 1365245952,
+      "used" : 103679960
+    },
+    "PeakUsage" : {
+      "committed" : 109576192,
+      "init" : 66060288,
+      "max" : 1372061696,
+      "used" : 107381168
+    },
+    "MemoryManagerNames" : [ "PS MarkSweep", "PS Scavenge" ],
+    "UsageThresholdSupported" : false,
+    "CollectionUsageThreshold" : 0,
+    "CollectionUsageThresholdExceeded" : false,
+    "CollectionUsageThresholdCount" : 0,
+    "CollectionUsage" : {
+      "committed" : 109576192,
+      "init" : 66060288,
+      "max" : 1365245952,
+      "used" : 0
+    },
+    "CollectionUsageThresholdSupported" : true,
+    "Valid" : true,
+    "Name" : "PS Eden Space",
+    "Type" : "HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=PS Eden Space"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=NameNodeInfo",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
+    "Total" : 285622591488,
+    "ClusterId" : "CID-1849cbd3-57ec-488d-8e6b-2b2beda6b66b",
+    "UpgradeFinalized" : true,
+    "Version" : "3.1.0-SNAPSHOT, r7dad4e4ac0d467325fba27b46b655c1abe5ac4c0",
+    "Used" : 73728,
+    "Free" : 146770833408,
+    "Safemode" : "",
+    "NonDfsUsedSpace" : 124272021504,
+    "PercentUsed" : 2.5813084E-5,
+    "BlockPoolUsedSpace" : 73728,
+    "PercentBlockPoolUsed" : 2.5813084E-5,
+    "PercentRemaining" : 51.386284,
+    "CacheCapacity" : 0,
+    "CacheUsed" : 0,
+    "TotalBlocks" : 0,
+    "NumberOfMissingBlocks" : 0,
+    "NumberOfMissingBlocksWithReplicationFactorOne" : 0,
+    "LiveNodes" : "{\"vinay-hadoop-slave1:9866\":{\"infoAddr\":\"172.18.0.4:0\",\"infoSecureAddr\":\"172.18.0.4:9865\",\"xferaddr\":\"172.18.0.4:9866\",\"lastContact\":1,\"usedSpace\":24576,\"adminState\":\"In Service\",\"nonDfsUsedSpace\":41424007168,\"capacity\":95207530496,\"numBlocks\":0,\"version\":\"3.1.0-SNAPSHOT\",\"used\":24576,\"remaining\":48923611136,\"blockScheduled\":0,\"blockPoolUsed\":24576,\"blockPoolUsedPercent\":2.5813084E-5,\"volfails\":0,\"lastBlockReport\":1},\"vinay-hadoop-master2:9866\":{\"infoAddr\":\"172.18.0.3:0\",\"infoSecureAddr\":\"172.18.0.3:9865\",\"xferaddr\":\"172.18.0.3:9866\",\"lastContact\":1,\"usedSpace\":24576,\"adminState\":\"In Service\",\"nonDfsUsedSpace\":41424007168,\"capacity\":95207530496,\"numBlocks\":0,\"version\":\"3.1.0-SNAPSHOT\",\"used\":24576,\"remaining\":48923611136,\"blockScheduled\":0,\"blockPoolUsed\":24576,\"blockPoolUsedPercent\":2.5813084E-5,\"volfails\":0,\"lastBlockReport\":1},\"vinay-hadoop-master1:9866\":{\"infoAddr\":\"172.18.0.2:0\",\"infoSecureAddr\":\"172.18.0.2:9865\",\"xferaddr\":\"172.18.0.2:9866\",\"lastContact\":0,\"usedSpace\":24576,\"adminState\":\"In Service\",\"nonDfsUsedSpace\":41424007168,\"capacity\":95207530496,\"numBlocks\":0,\"version\":\"3.1.0-SNAPSHOT\",\"used\":24576,\"remaining\":48923611136,\"blockScheduled\":0,\"blockPoolUsed\":24576,\"blockPoolUsedPercent\":2.5813084E-5,\"volfails\":0,\"lastBlockReport\":1}}",
+    "DeadNodes" : "{}",
+    "DecomNodes" : "{}",
+    "EnteringMaintenanceNodes" : "{}",
+    "BlockPoolId" : "BP-301241612-172.18.0.2-1513083738668",
+    "NameDirStatuses" : "{\"active\":{\"/data/hdfs/name\":\"IMAGE_AND_EDITS\"},\"failed\":{}}",
+    "NodeUsage" : "{\"nodeUsage\":{\"min\":\"0.00%\",\"median\":\"0.00%\",\"max\":\"0.00%\",\"stdDev\":\"0.00%\"}}",
+    "NameJournalStatus" : "[{\"manager\":\"QJM to [172.18.0.2:8485, 172.18.0.3:8485, 172.18.0.4:8485]\",\"stream\":\"Writing segment beginning at txid 25. \\n172.18.0.2:8485 (Written txid 25), 172.18.0.3:8485 (Written txid 25), 172.18.0.4:8485 (Written txid 25)\",\"disabled\":\"false\",\"required\":\"true\"},{\"manager\":\"FileJournalManager(root=/data/hdfs/name)\",\"stream\":\"EditLogFileOutputStream(/data/hdfs/name/current/edits_inprogress_0000000000000000025)\",\"disabled\":\"false\",\"required\":\"false\"}]",
+    "JournalTransactionInfo" : "{\"MostRecentCheckpointTxId\":\"0\",\"LastAppliedOrWrittenTxId\":\"25\"}",
+    "NNStartedTimeInMillis" : 1513083740579,
+    "CompileInfo" : "2017-12-04T06:03Z by vinay from master",
+    "CorruptFiles" : "[]",
+    "NumberOfSnapshottableDirs" : 0,
+    "DistinctVersionCount" : 1,
+    "DistinctVersions" : [ {
+      "key" : "3.1.0-SNAPSHOT",
+      "value" : 3
+    } ],
+    "SoftwareVersion" : "3.1.0-SNAPSHOT",
+    "NameDirSize" : "{\"/data/hdfs/name\":1050554}",
+    "RollingUpgradeStatus" : null,
+    "Threads" : 57
+  }, {
+    "name" : "Hadoop:service=NameNode,name=SnapshotInfo",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.snapshot.SnapshotManager",
+    "SnapshottableDirectories" : [ ],
+    "Snapshots" : [ ]
+  }, {
+    "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-172.18.0.3-8485",
+    "modelerType" : "IPCLoggerChannel-172.18.0.3-8485",
+    "tag.Context" : "dfs",
+    "tag.IsOutOfSync" : "false",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "QueuedEditsSize" : 0,
+    "LagTimeMillis" : 2,
+    "CurrentLagTxns" : 0
+  }, {
+    "name" : "Hadoop:service=NameNode,name=BlockStats",
+    "modelerType" : "org.apache.hadoop.hdfs.server.blockmanagement.BlockManager",
+    "StorageTypeStats" : [ {
+      "key" : "DISK",
+      "value" : {
+        "blockPoolUsed" : 73728,
+        "capacityNonDfsUsed" : 124272021504,
+        "capacityRemaining" : 146770833408,
+        "capacityTotal" : 285622591488,
+        "capacityUsed" : 73728,
+        "nodesInService" : 3
+      }
+    } ]
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=Compressed Class Space",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 4718592,
+      "init" : 0,
+      "max" : 1073741824,
+      "used" : 4540448
+    },
+    "PeakUsage" : {
+      "committed" : 4718592,
+      "init" : 0,
+      "max" : 1073741824,
+      "used" : 4540448
+    },
+    "MemoryManagerNames" : [ "Metaspace Manager" ],
+    "UsageThreshold" : 0,
+    "UsageThresholdExceeded" : false,
+    "UsageThresholdCount" : 0,
+    "UsageThresholdSupported" : true,
+    "CollectionUsage" : null,
+    "CollectionUsageThresholdSupported" : false,
+    "Valid" : true,
+    "Name" : "Compressed Class Space",
+    "Type" : "NON_HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=Compressed Class Space"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=ReplicatedBlocksState",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
+    "LowRedundancyReplicatedBlocks" : 0,
+    "CorruptReplicatedBlocks" : 0,
+    "MissingReplicatedBlocks" : 0,
+    "MissingReplicationOneBlocks" : 0,
+    "BytesInFutureReplicatedBlocks" : 0,
+    "PendingDeletionReplicatedBlocks" : 0,
+    "TotalReplicatedBlocks" : 0
+  }, {
+    "name" : "java.lang:type=Memory",
+    "modelerType" : "sun.management.MemoryImpl",
+    "ObjectPendingFinalizationCount" : 0,
+    "HeapMemoryUsage" : {
+      "committed" : 360710144,
+      "init" : 262144000,
+      "max" : 3715629056,
+      "used" : 174935576
+    },
+    "NonHeapMemoryUsage" : {
+      "committed" : 57016320,
+      "init" : 2555904,
+      "max" : -1,
+      "used" : 55728408
+    },
+    "Verbose" : false,
+    "ObjectName" : "java.lang:type=Memory"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=FSNamesystemState",
+    "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
+    "CapacityTotal" : 285622591488,
+    "CapacityUsed" : 73728,
+    "CapacityRemaining" : 146770833408,
+    "TotalLoad" : 3,
+    "SnapshotStats" : "{\"SnapshottableDirectories\":0,\"Snapshots\":0}",
+    "NumEncryptionZones" : 0,
+    "FsLockQueueLength" : 0,
+    "BlocksTotal" : 0,
+    "MaxObjects" : 0,
+    "FilesTotal" : 9,
+    "PendingReplicationBlocks" : 0,
+    "PendingReconstructionBlocks" : 0,
+    "UnderReplicatedBlocks" : 0,
+    "LowRedundancyBlocks" : 0,
+    "ScheduledReplicationBlocks" : 0,
+    "PendingDeletionBlocks" : 0,
+    "BlockDeletionStartTime" : 1513083740579,
+    "FSState" : "Operational",
+    "NumLiveDataNodes" : 3,
+    "NumDeadDataNodes" : 0,
+    "NumDecomLiveDataNodes" : 0,
+    "NumDecomDeadDataNodes" : 0,
+    "VolumeFailuresTotal" : 0,
+    "EstimatedCapacityLostTotal" : 0,
+    "NumDecommissioningDataNodes" : 0,
+    "NumStaleDataNodes" : 0,
+    "NumStaleStorages" : 0,
+    "TopUserOpCounts" : "{\"timestamp\":\"2017-12-12T13:05:11+0000\",\"windows\":[{\"ops\":[{\"opType\":\"rollEditLog\",\"topUsers\":[{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":1},{\"opType\":\"*\",\"topUsers\":[{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":1}],\"windowLenMs\":60000},{\"ops\":[{\"opType\":\"rollEditLog\",\"topUsers\":[{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":1},{\"opType\":\"getfileinfo\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":18}],\"totalCount\":18},{\"opType\":\"mkdirs\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":5}],\"totalCount\":5},{\"opType\":\"listStatus\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":15}],\"totalCount\":15},{\"opType\":\"*\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":50},{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":51},{\"opType\":\"setPermission\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":4}],\"totalCount\":4},{\"opType\":\"setOwner\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":8}],\"totalCount\":8}],\"windowLenMs\":300000},{\"ops\":[{\"opType\":\"rollEditLog\",\"topUsers\":[{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":1},{\"opType\":\"getfileinfo\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":18}],\"totalCount\":18},{\"opType\":\"mkdirs\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":5}],\"totalCount\":5},{\"opType\":\"listStatus\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":15}],\"totalCount\":15},{\"opType\":\"*\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":50},{\"user\":\"nn/vinay-hadoop-master2@HADOOP.COM\",\"count\":1}],\"totalCount\":51},{\"opType\":\"setPermission\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":4}],\"totalCount\":4},{\"opType\":\"setOwner\",\"topUsers\":[{\"user\":\"hdfs/vinay-hadoop-master1@HADOOP.COM\",\"count\":8}],\"totalCount\":8}],\"windowLenMs\":1500000}]}",
+    "TotalSyncCount" : 1,
+    "TotalSyncTimes" : "3 9 ",
+    "NumInMaintenanceLiveDataNodes" : 0,
+    "NumInMaintenanceDeadDataNodes" : 0,
+    "NumEnteringMaintenanceDataNodes" : 0
+  }, {
+    "name" : "java.nio:type=BufferPool,name=mapped",
+    "modelerType" : "sun.management.ManagementFactoryHelper$1",
+    "TotalCapacity" : 0,
+    "MemoryUsed" : 0,
+    "Count" : 0,
+    "Name" : "mapped",
+    "ObjectName" : "java.nio:type=BufferPool,name=mapped"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=RetryCache.NameNodeRetryCache",
+    "modelerType" : "RetryCache.NameNodeRetryCache",
+    "tag.Context" : "rpc",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "CacheHit" : 0,
+    "CacheCleared" : 0,
+    "CacheUpdated" : 0
+  }, {
+    "name" : "java.lang:type=MemoryPool,name=PS Survivor Space",
+    "modelerType" : "sun.management.MemoryPoolImpl",
+    "Usage" : {
+      "committed" : 10485760,
+      "init" : 10485760,
+      "max" : 10485760,
+      "used" : 0
+    },
+    "PeakUsage" : {
+      "committed" : 10485760,
+      "init" : 10485760,
+      "max" : 10485760,
+      "used" : 10482304
+    },
+    "MemoryManagerNames" : [ "PS MarkSweep", "PS Scavenge" ],
+    "UsageThresholdSupported" : false,
+    "CollectionUsageThreshold" : 0,
+    "CollectionUsageThresholdExceeded" : false,
+    "CollectionUsageThresholdCount" : 0,
+    "CollectionUsage" : {
+      "committed" : 10485760,
+      "init" : 10485760,
+      "max" : 10485760,
+      "used" : 0
+    },
+    "CollectionUsageThresholdSupported" : true,
+    "Valid" : true,
+    "Name" : "PS Survivor Space",
+    "Type" : "HEAP",
+    "ObjectName" : "java.lang:type=MemoryPool,name=PS Survivor Space"
+  }, {
+    "name" : "com.sun.management:type=DiagnosticCommand",
+    "modelerType" : "sun.management.DiagnosticCommandImpl"
+  }, {
+    "name" : "Hadoop:service=NameNode,name=UgiMetrics",
+    "modelerType" : "UgiMetrics",
+    "tag.Context" : "ugi",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "LoginSuccessNumOps" : 1,
+    "LoginSuccessAvgTime" : 84.0,
+    "LoginFailureNumOps" : 0,
+    "LoginFailureAvgTime" : 0.0,
+    "GetGroupsNumOps" : 1,
+    "GetGroupsAvgTime" : 4.0,
+    "RenewalFailuresTotal" : 0,
+    "RenewalFailures" : 0
+  }, {
+    "name" : "Hadoop:service=NameNode,name=RpcDetailedActivityForPort9820",
+    "modelerType" : "RpcDetailedActivityForPort9820",
+    "tag.port" : "9820",
+    "tag.Context" : "rpcdetailed",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "GetServiceStatusNumOps" : 166,
+    "GetServiceStatusAvgTime" : 0.1566265060240964,
+    "RollEditLogNumOps" : 1,
+    "RollEditLogAvgTime" : 72.0,
+    "SendHeartbeatNumOps" : 117,
+    "SendHeartbeatAvgTime" : 2.572649572649573,
+    "RegisterDatanodeNumOps" : 3,
+    "RegisterDatanodeAvgTime" : 45.0,
+    "GetMostRecentCheckpointTxIdNumOps" : 1,
+    "GetMostRecentCheckpointTxIdAvgTime" : 2.0,
+    "GetListingNumOps" : 15,
+    "GetListingAvgTime" : 0.26666666666666666,
+    "SetOwnerNumOps" : 8,
+    "SetOwnerAvgTime" : 0.125,
+    "MonitorHealthNumOps" : 166,
+    "MonitorHealthAvgTime" : 0.09036144578313253,
+    "VersionRequestNumOps" : 4,
+    "VersionRequestAvgTime" : 3.25,
+    "TransitionToActiveNumOps" : 1,
+    "TransitionToActiveAvgTime" : 400.0,
+    "GetTransactionIdNumOps" : 1,
+    "GetTransactionIdAvgTime" : 2.0,
+    "BlockReportNumOps" : 3,
+    "BlockReportAvgTime" : 77.0,
+    "MkdirsNumOps" : 5,
+    "MkdirsAvgTime" : 1.8,
+    "IsUpgradeFinalizedNumOps" : 1,
+    "IsUpgradeFinalizedAvgTime" : 2.0,
+    "SetPermissionNumOps" : 4,
+    "SetPermissionAvgTime" : 0.75,
+    "GetFileInfoNumOps" : 18,
+    "GetFileInfoAvgTime" : 1.1666666666666667
+  }, {
+    "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-172.18.0.2-8485",
+    "modelerType" : "IPCLoggerChannel-172.18.0.2-8485",
+    "tag.Context" : "dfs",
+    "tag.IsOutOfSync" : "false",
+    "tag.Hostname" : "vinay-hadoop-master1",
+    "QueuedEditsSize" : 0,
+    "LagTimeMillis" : 2,
+    "CurrentLagTxns" : 0
+  }, {
+    "name" : "com.sun.management:type=HotSpotDiagnostic",
+    "modelerType" : "sun.management.HotSpotDiagnostic",
+    "DiagnosticOptions" : [ {
+      "name" : "HeapDumpBeforeFullGC",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "HeapDumpAfterFullGC",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "HeapDumpOnOutOfMemoryError",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "HeapDumpPath",
+      "origin" : "DEFAULT",
+      "value" : "",
+      "writeable" : true
+    }, {
+      "name" : "CMSAbortablePrecleanWaitMillis",
+      "origin" : "DEFAULT",
+      "value" : "100",
+      "writeable" : true
+    }, {
+      "name" : "CMSWaitDuration",
+      "origin" : "DEFAULT",
+      "value" : "2000",
+      "writeable" : true
+    }, {
+      "name" : "CMSTriggerInterval",
+      "origin" : "DEFAULT",
+      "value" : "-1",
+      "writeable" : true
+    }, {
+      "name" : "PrintGC",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintGCDetails",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintGCDateStamps",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintGCTimeStamps",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintGCID",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintClassHistogramBeforeFullGC",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintClassHistogramAfterFullGC",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "PrintClassHistogram",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    }, {
+      "name" : "MinHeapFreeRatio",
+      "origin" : "DEFAULT",
+      "value" : "0",
+      "writeable" : true
+    }, {
+      "name" : "MaxHeapFreeRatio",
+      "origin" : "DEFAULT",
+      "value" : "100",
+      "writeable" : true
+    }, {
+      "name" : "PrintConcurrentLocks",
+      "origin" : "DEFAULT",
+      "value" : "false",
+      "writeable" : true
+    } ],
+    "ObjectName" : "com.sun.management:type=HotSpotDiagnostic"
+  } ]
+}

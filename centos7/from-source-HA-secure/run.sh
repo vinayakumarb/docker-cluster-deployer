@@ -4,13 +4,13 @@ SCRIPT_NAME=$(basename $BASH_SOURCE)
 DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
-HADOOP_SRC_HOME=/usr1/install/hadoop-3.0.0-src
-HADOOP_VERSION=3.0.0
-
+HADOOP_SRC_HOME=/usr1/code/hadoop/trunk
+HADOOP_VERSION=3.1.0-SNAPSHOT
 ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.11.tar.gz
 
 HADOOP_MAJOR_VERSION=$(echo $HADOOP_VERSION|cut -d. -f1)
 
+REBUILD=0
 let N=3
 SKIP_MVN=false
 REGENERATE_CA=false;
@@ -35,20 +35,23 @@ function hadoop_target() {
 }
 
 function build_hadoop() {
-    if [[ $REBUILD -eq 1 || "$(docker images -q vinay-hadoop)" == "" ]]; then
+    if [[ $REBUILD -eq 1 || "$(docker images -q hadoop-centos7-secure)" == "" ]]; then
         echo "Building Hadoop...."
         #rebuild the base image if not exist
-        if [[ "$(docker images -q vinay-hadoop-base)" == "" ]]; then
+        if [[ "$(docker images -q hadoop-centos7-base)" == "" ]]; then
             echo "Building Docker...."
-            docker build -t vinay-hadoop-base .
+            docker build -t hadoop-centos7-base .
         fi
         rm -rf tmp
         mkdir tmp
 
+        #Stop running containers with the name
+        docker rm -f $(docker ps -a -q -f "ancestor=hadoop-centos7-secure") || true  2>&1  > /dev/null
+
         # Prepare hadoop packages and configuration files
         if [ "$SKIP_MVN" == "false" ]; then
           cur=$(pwd)
-          cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade -Dcontainer-executor.conf.dir=/hadoop/etc/hadoop/ce || exit 1
+          cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade || exit 1
           cd $cur;
         fi
         HADOOP_TARGET_SNAPSHOT=$(hadoop_target)
@@ -62,8 +65,17 @@ function build_hadoop() {
 
         # Generate docker file for hadoop
 cat > tmp/Dockerfile << EOF
-        FROM vinay-hadoop-base
-        RUN apt-get install -y dnsutils lsof net-tools curl
+        FROM hadoop-centos7-base
+        RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+        systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+        rm -f /lib/systemd/system/multi-user.target.wants/*;\
+        rm -f /etc/systemd/system/*.wants/*;\
+        rm -f /lib/systemd/system/local-fs.target.wants/*; \
+        rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+        rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+        rm -f /lib/systemd/system/basic.target.wants/*;\
+        rm -f /lib/systemd/system/anaconda.target.wants/*;
+        VOLUME [ "/sys/fs/cgroup" ]
 
         #ZK related environments
         ENV ZK_HOME $ZK_HOME
@@ -128,17 +140,17 @@ cat > tmp/Dockerfile << EOF
         RUN chown root:hadoop $HADOOP_HOME/bin/container-executor
         RUN chmod 6050 $HADOOP_HOME/bin/container-executor
 
-        RUN mkdir -p /hadoop/etc/hadoop/ce
-        RUN chown root:hadoop /hadoop/etc/hadoop/ce
-        RUN mv $HADOOP_HOME/etc/hadoop/container-executor.cfg /hadoop/etc/hadoop/ce
-        RUN chown root:hadoop $HADOOP_HOME/etc/hadoop/ce/container-executor.cfg
-        RUN chmod 0400 $HADOOP_HOME/etc/hadoop/ce/container-executor.cfg
+        RUN chown root:hadoop $HADOOP_HOME/etc/hadoop/container-executor.cfg
+        RUN chmod 0400 $HADOOP_HOME/etc/hadoop/container-executor.cfg
+
+        ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk.x86_64
+        ENV PATH $JAVA_HOME/bin:$PATH
 
         EXPOSE 22 2181 9820 8045 8088 8090 8091 9870 9871 9864 9865 9866 9867 
 EOF
         echo "Building image for hadoop"
-        docker rmi -f vinay-hadoop
-        docker build -t vinay-hadoop tmp
+        docker rmi -f hadoop-centos7-secure
+        docker build -t hadoop-centos7-secure tmp
 
         # Cleanup
         rm -rf tmp
@@ -154,8 +166,8 @@ function regenerate_ca(){
 # Parse and validatet the command line arguments
 function parse_arguments() {
     while [ "$1" != "" ]; do
-        PARAM=`echo $1 | awk -F= '{print $1}'`
-        VALUE=`echo $1 | awk -F= '{print $2}'`
+        PARAM=$(echo $1 | awk -F= '{print $1}')
+        VALUE=$(echo $1 | awk -F= '{print $2}')
         case $PARAM in
             -h | --help)
                 usage
@@ -211,7 +223,7 @@ do
     dn_https_port=$(expr $port_addition + 9865)
     rm_http_port=$(expr $port_addition + 8088)
     rm_https_port=$(expr $port_addition + 8090)
-    container_id=$(docker run -p $nn_http_port:9870 -p $nn_https_port:9871 -p $dn_http_port:9864 -p $dn_https_port:9865 -p $rm_http_port:8088 -p $rm_https_port:8090 -d --net hadoopsecure.com --name vinay-hadoop-master$i -h vinay-hadoop-master$i --network-alias=vinay-hadoop-master$i vinay-hadoop)
+    container_id=$(docker run -p $nn_http_port:9870 -p $nn_https_port:9871 -p $dn_http_port:9864 -p $dn_https_port:9865 -p $rm_http_port:8088 -p $rm_https_port:8090 -d --net hadoopsecure.com --name vinay-hadoop-master$i -h vinay-hadoop-master$i --network-alias=vinay-hadoop-master$i hadoop-centos7-secure)
     containerIds[$i]=${container_id:0:12};
     echo "vinay-hadoop-master$i" >> hosts
 done
@@ -222,7 +234,7 @@ do
     port_addition=$(expr $j \* 10000)
     dn_http_port=$(expr $port_addition + 9864)
     dn_https_port=$(expr $port_addition + 9865)
-    container_id=$(docker run -p $dn_http_port:9864 -p $dn_https_port:9865 -d --net hadoopsecure.com --name vinay-hadoop-slave$i -h vinay-hadoop-slave$i --network-alias=vinay-hadoop-slave$i vinay-hadoop)
+    container_id=$(docker run -p $dn_http_port:9864 -p $dn_https_port:9865 -d --net hadoopsecure.com --name vinay-hadoop-slave$i -h vinay-hadoop-slave$i --network-alias=vinay-hadoop-slave$i hadoop-centos7-secure)
     containerIds[j]=${container_id:0:12};
     echo "vinay-hadoop-slave$i" >> hosts
 done
@@ -242,8 +254,8 @@ docker cp hosts ${containerIds[2]}:$HADOOP_HOME/etc/hadoop/slaves
 
 ##Install kerberos
 ##It creates all principals and distribute to all nodes
-docker exec -it ${containerIds[1]} /bin/bash /root/scripts/kerberos-config.sh installAllClients vinay-hadoop-master1
-docker exec -it ${containerIds[1]} /bin/bash /root/scripts/kerberos-config.sh installServer vinay-hadoop-master1
+docker exec -it ${containerIds[1]} /bin/bash /root/scripts/kerberos-config.sh installAllClients ${containerIds[1]}
+docker exec -it ${containerIds[1]} /bin/bash /root/scripts/kerberos-config.sh installServer ${containerIds[1]}
 
 #Setup ssl in all nodes
 for host in ${containerIds[*]}; do
@@ -295,15 +307,14 @@ docker exec -it ${containerIds[2]} /bin/su -c '${HADOOP_HOME}/bin/hdfs \
     && sleep 3 \
     && tail /var/log/hadoop/hdfs/hadoop-hdfs-zkfc-$HOSTNAME.log' hdfs
 
+docker exec -it ${containerIds[1]} /bin/su -c 'kinit -kt $HOME/hdfs.$HOSTNAME.keytab \
+    hdfs/$HOSTNAME' hdfs
+
 docker exec -it ${containerIds[1]} /bin/cp /root/scripts/install.sh /home/hdfs/install.sh
 docker exec -it ${containerIds[1]} /bin/chown hdfs:hadoop /home/hdfs/install.sh
 docker exec -it ${containerIds[1]} /bin/chmod +x /home/hdfs/install.sh
 
-docker exec -it ${containerIds[1]} /bin/su -c 'kinit -kt $HOME/hdfs.$HOSTNAME.keytab \
-    hdfs/$HOSTNAME' hdfs
-
-docker exec -it ${containerIds[1]} /bin/su -c '/bin/bash \
-    /home/hdfs/install.sh init-hdfs-dirs' hdfs
+docker exec -it ${containerIds[1]} /bin/su -c '/bin/bash /home/hdfs/install.sh init-hdfs-dirs' hdfs
 
 ## Start remaining hdfs and yarn services
 docker exec -it ${containerIds[1]} $HADOOP_HOME/sbin/start-dfs.sh
