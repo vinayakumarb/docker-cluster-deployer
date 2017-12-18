@@ -101,6 +101,9 @@ function createPrincipals(){
   kadmin.local -q "addprinc -pw hadoop jhs/$principal_host"
   kadmin.local -q "addprinc -pw hadoop mapred/$principal_host"
 
+  echo "Creating Client accounts. Principal: mapred. Password: hadoop"
+  kadmin.local -q "addprinc -pw hadoop client/$principal_host"
+
   echo "Creating keytab for nn: nn.$host.keytab"
   kadmin.local -q "ktadd -norandkey -k $DIR/nn.$host.keytab host/$principal_host nn/$principal_host"
   echo "Creating keytab for dn: dn.$host.keytab"
@@ -120,6 +123,7 @@ function createPrincipals(){
   kadmin.local -q "ktadd -norandkey -k $DIR/hdfs.$host.keytab hdfs/$principal_host"
   kadmin.local -q "ktadd -norandkey -k $DIR/mapred.$host.keytab mapred/$principal_host"
   kadmin.local -q "ktadd -norandkey -k $DIR/yarn.$host.keytab yarn/$principal_host"
+  kadmin.local -q "ktadd -norandkey -k $DIR/client.$host.keytab client/$principal_host"
 
   #Distribute the keytabs to corresponding user
   cp $DIR/nn.$host.keytab /home/hdfs
@@ -143,6 +147,11 @@ function createPrincipals(){
   chown mapred:hadoop /home/mapred/*$host.keytab
   chmod 400 /home/mapred/*$host.keytab
 
+  cp $DIR/client.$host.keytab /home/client
+  cp $DIR/HTTP.$host.keytab /home/client
+  chown client:users /home/client/*$host.keytab
+  chmod 400 /home/client/*$host.keytab
+
   if [ "$host" == "$myhostname" ];then
     #Skip copying to same machine
     return;
@@ -153,6 +162,8 @@ function createPrincipals(){
   su -c "ssh yarn@$host chmod 400 /home/yarn/\*$host.keytab" yarn
   su -c "scp /home/mapred/*$host.keytab mapred@$host:/home/mapred/" mapred
   su -c "ssh mapred@$host chmod 400 /home/mapred/\*$host.keytab" mapred
+  su -c "scp /home/client/*$host.keytab client@$host:/home/client/" client
+  su -c "ssh client@$host chmod 400 /home/client/\*$host.keytab" client
 }
 
 #

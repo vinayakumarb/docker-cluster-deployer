@@ -5,7 +5,7 @@ DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
 HADOOP_SRC_HOME=${HADOOP_SRC_HOME:-/usr1/code/hadoop/trunk}
-HADOOP_VERSION=$(mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
+HADOOP_VERSION=$(cd $HADOOP_SRC_HOME && mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
 
 ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.11.tar.gz
 
@@ -91,7 +91,8 @@ cat > tmp/Dockerfile << EOF
         ENV PATH "\$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
 
         #Create users
-        RUN /bin/bash /root/scripts/install.sh setupusers "--group=hadoop" "--users=zk,hdfs,mapred,yarn"
+        RUN /bin/bash /root/scripts/install.sh setupusers "--users=zk,hdfs,mapred,yarn:hadoop"
+        RUN /bin/bash /root/scripts/install.sh setupusers "--users=client:users"
 
         RUN chown -R zk:hadoop $ZK_HOME
         RUN chown -R hdfs:hadoop $HADOOP_HOME

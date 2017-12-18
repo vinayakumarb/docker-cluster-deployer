@@ -199,7 +199,7 @@ esac
 # Where (primarily) daemon log files are stored.
 # ${HADOOP_HOME}/logs by default.
 # Java property: hadoop.log.dir
-export HADOOP_LOG_DIR=/var/log/hadoop/hdfs
+export HADOOP_LOG_DIR=${HADOOP_LOG_DIR:-/var/log/hadoop/hdfs}
 
 # A string representing this instance of hadoop. $USER by default.
 # This is used in writing log and pid files, so keep that in mind!
@@ -214,7 +214,7 @@ export HADOOP_LOG_DIR=/var/log/hadoop/hdfs
 
 # Default log4j setting for interactive commands
 # Java property: hadoop.root.logger
-export HADOOP_ROOT_LOGGER=INFO,console,RFA
+# export HADOOP_ROOT_LOGGER=INFO,console
 
 # Default log4j setting for daemons spawned explicitly by
 # --daemon option of hadoop, hdfs, mapred and yarn command.

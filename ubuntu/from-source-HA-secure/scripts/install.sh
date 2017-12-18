@@ -6,7 +6,7 @@ DIR=$(cd $DIR && pwd);
 function usage() {
     echo "Usage: ./install.sh <COMMAND> [options]"
     echo
-    echo "setupusers  --group=<GROUP> --users=<USERS>"
+    echo "setupusers --users <USERS>:<GROUP>"
     echo      "create users and map to specified group"
 }
 
@@ -23,7 +23,7 @@ function createUser(){
 
 function createGroup(){
     groupname=$1;
-    groupadd $groupname
+    groupadd $groupname || true
 }
 
 function setupUsers(){
@@ -37,11 +37,9 @@ function setupUsers(){
                 usage
                 exit
                 ;;
-            --group)
-                GROUP=$VALUE
-                ;;
             --users)
-                USERS=$VALUE
+                USERS=$(echo $VALUE|awk -F: '{print $1}')
+                GROUP=$(echo $VALUE|awk -F: '{print $2}')
                 ;;
             *)
                 echo "ERROR: unknown parameter \"$PARAM\""
@@ -60,20 +58,15 @@ function setupUsers(){
 
 function initHdfsDirs(){
     $HADOOP_HOME/bin/hdfs dfs -chmod 755 /
-    $HADOOP_HOME/bin/hdfs dfs -mkdir /tmp
-    $HADOOP_HOME/bin/hdfs dfs -chmod +rwxt /tmp
-    $HADOOP_HOME/bin/hdfs dfs -chown hdfs:hadoop /tmp
-    $HADOOP_HOME/bin/hdfs dfs -mkdir /user
+    $HADOOP_HOME/bin/hdfs dfs -mkdir -p /tmp/hadoop-yarn/staging/hdfs /tmp/hadoop-yarn/staging/yarn /tmp/hadoop-yarn/staging/client /user/yarn /user/hdfs /user/client /user/mapred /yarn/app-logs /mapred/jobhistory/intermediate-done /mapred/jobhistory/done
+    $HADOOP_HOME/bin/hdfs dfs -chmod +rwxt /tmp /yarn/app-logs /mapred/jobhistory/intermediate-done
+    $HADOOP_HOME/bin/hdfs dfs -chown hdfs:hadoop /tmp /user
     $HADOOP_HOME/bin/hdfs dfs -chmod 755 /user
-    $HADOOP_HOME/bin/hdfs dfs -chown hdfs:hadoop /user
-    $HADOOP_HOME/bin/hdfs dfs -mkdir -p /yarn/app-logs
-    $HADOOP_HOME/bin/hdfs dfs -chown -R yarn:hadoop /yarn
-    $HADOOP_HOME/bin/hdfs dfs -chmod +rwxt /yarn/app-logs
-    $HADOOP_HOME/bin/hdfs dfs -mkdir -p /mapred/jobhistory/intermediate-done
-    $HADOOP_HOME/bin/hdfs dfs -chmod +rwxt /mapred/jobhistory/intermediate-done
-    $HADOOP_HOME/bin/hdfs dfs -mkdir -p /mapred/jobhistory/done
-    $HADOOP_HOME/bin/hdfs dfs -chown -R mapred:hadoop /mapred
-    $HADOOP_HOME/bin/hdfs dfs -chmod +rwxt /mapred/jobhistory/done
+    $HADOOP_HOME/bin/hdfs dfs -chmod 700 "/user/*"
+    $HADOOP_HOME/bin/hdfs dfs -chown -R yarn:hadoop /yarn /tmp/hadoop-yarn /user/yarn
+    $HADOOP_HOME/bin/hdfs dfs -chown -R hdfs:hadoop /yarn /tmp/hadoop-yarn/staging/hdfs
+    $HADOOP_HOME/bin/hdfs dfs -chown -R mapred:hadoop /mapred /user/mapred
+    $HADOOP_HOME/bin/hdfs dfs -chown -R client:users /yarn /tmp/hadoop-yarn/staging/client /user/client
     $HADOOP_HOME/bin/hdfs dfs -ls -R /
 }
 
