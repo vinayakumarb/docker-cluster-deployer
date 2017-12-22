@@ -51,7 +51,7 @@ function build_hadoop() {
 
         # Prepare hadoop packages and configuration files
         if [ "$SKIP_MVN" == "false" ]; then
-          cur=$(PWD)
+          cur=$(pwd)
           cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade || exit 1
           cd $cur;
         fi

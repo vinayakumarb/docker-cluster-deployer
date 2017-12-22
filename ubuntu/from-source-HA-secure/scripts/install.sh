@@ -80,16 +80,16 @@ function setupSsl(){
     ssldir=$HOME/scripts/ssl
     mkdir -p $ssldir
     #1 Generate the key
-    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
+    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -storetype pkcs12 -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
     #2 Export the key as certificate
     keytool -keystore $ssldir/keystore -alias $(hostname) -certreq -storepass $password -keypass $password -file $ssldir/$(hostname).cert
     #3 Add CA certificate to truststore
-    keytool -keystore $ssldir/truststore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
+    keytool -keystore $ssldir/truststore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password -storetype pkcs12
     #4 Sign the certificate with CA certificate
     openssl x509 -req -CA $ssldir/ca.cert -CAkey $ssldir/ca.key -in $ssldir/$(hostname).cert -out $ssldir/$(hostname).cert.signed -days 7 -CAcreateserial
     #5 Import CA certicate and signed certificate to keystore
-    keytool -keystore $ssldir/keystore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
-    keytool -keystore $ssldir/keystore -alias $(hostname) -import -file $ssldir/$(hostname).cert.signed -noprompt -storepass $password -keypass $password
+    keytool -keystore $ssldir/keystore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password -storetype pkcs12
+    keytool -keystore $ssldir/keystore -alias $(hostname) -import -file $ssldir/$(hostname).cert.signed -noprompt -storepass $password -keypass $password -storetype pkcs12
     #6 copy the keystore and truststore to hadoop conf directory and limit the permissions to only owner and hadoop special group
     cp $ssldir/keystore $ssldir/truststore $HADOOP_HOME/etc/hadoop
     chown hdfs:hadoop $HADOOP_HOME/etc/hadoop/keystore $HADOOP_HOME/etc/hadoop/truststore
