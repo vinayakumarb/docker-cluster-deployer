@@ -147,7 +147,7 @@ EOF
 
 function regenerate_ca(){
     if ! [ -f $DIR/scripts/ssl/ca.cert ] || [ "$REGENERATE_CA" == "true" ] ; then
-        openssl req -nodes -newkey rsa:2048  -x509 -keyout $DIR/scripts/ssl/ca.key -out $DIR/scripts/ssl/ca.cert -subj "/C=IN/ST=Karnataka/L=Bengaluru/O=Apache Software Foundation/OU=Apache Hadoop/CN=www.people.apache.org/emailAddress=vinayakumarb@apache.org"
+        openssl req -newkey rsa:2048  -x509 -keyout $DIR/scripts/ssl/ca.key -out $DIR/scripts/ssl/ca.cert -subj "/C=IN/ST=Karnataka/L=Bengaluru/O=Apache Software Foundation/OU=Apache Hadoop/CN=www.people.apache.org/emailAddress=vinayakumarb@apache.org" -passout pass:capassword
     fi
 }
 

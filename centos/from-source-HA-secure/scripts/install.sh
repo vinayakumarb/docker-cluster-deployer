@@ -87,17 +87,44 @@ function setupSsl(){
     ssldir=$HOME/scripts/ssl
     mkdir -p $ssldir
     #1 Generate the key
-    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
+    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -keyalg RSA -keysize 2048 -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
     #2 Export the key as certificate
     keytool -keystore $ssldir/keystore -alias $(hostname) -certreq -storepass $password -keypass $password -file $ssldir/$(hostname).cert
     #3 Add CA certificate to truststore
     keytool -keystore $ssldir/truststore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
     #4 Sign the certificate with CA certificate
-    openssl x509 -req -CA $ssldir/ca.cert -CAkey $ssldir/ca.key -in $ssldir/$(hostname).cert -out $ssldir/$(hostname).cert.signed -days 7 -CAcreateserial
+    openssl x509 -req -CA $ssldir/ca.cert -CAkey $ssldir/ca.key -in $ssldir/$(hostname).cert -out $ssldir/$(hostname).cert.signed -days 7 -CAcreateserial -passin pass:capassword
     #5 Import CA certicate and signed certificate to keystore
     keytool -keystore $ssldir/keystore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
     keytool -keystore $ssldir/keystore -alias $(hostname) -import -file $ssldir/$(hostname).cert.signed -noprompt -storepass $password -keypass $password
     #6 copy the keystore and truststore to hadoop conf directory and limit the permissions to only owner and hadoop special group
+    cp $ssldir/keystore $ssldir/truststore $HADOOP_HOME/etc/hadoop
+    chown hdfs:hadoop $HADOOP_HOME/etc/hadoop/keystore $HADOOP_HOME/etc/hadoop/truststore
+    chmod 660 $HADOOP_HOME/etc/hadoop/keystore $HADOOP_HOME/etc/hadoop/truststore
+}
+
+function setupSslUsingOpenSsl(){
+    password=${1:-hadoopkeystorepass}
+    ssldir=$HOME/scripts/ssl
+    mkdir -p $ssldir
+    #1 Generate the key
+    openssl req -newkey rsa:2048 -x509 -keyout $ssldir/selfkey.pem -out $ssldir/selfcert.pem -days 3650 -subj "/C=IN/ST=Karnataka/O=ASF/OU=Apache  Hadoop/CN=$(hostname)" -passout pass:$password
+    #2 Export the key
+    openssl pkcs12 -export -in $ssldir/selfcert.pem -inkey $ssldir/selfkey.pem -out $ssldir/identity.p12 -name $(hostname) -password pass:$password
+    #3 Import to keystore
+    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
+    #### CA Sighning part ### 
+    #2 Export the key as certificate
+    #keytool -keystore $ssldir/keystore -alias $(hostname) -certreq -storepass $password -keypass $password -file $ssldir/$(hostname).cert
+    #3 Add CA certificate to truststore
+    #keytool -keystore $ssldir/truststore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
+    #4 Sign the certificate with CA certificate
+    #openssl x509 -req -CA $ssldir/ca.cert -CAkey $ssldir/ca.key -in $ssldir/$(hostname).cert -out $ssldir/$(hostname).cert.signed -days 7 -CAcreateserial
+    #5 Import CA certicate and signed certificate to keystore
+    #keytool -keystore $ssldir/keystore -alias CARoot -import -file $ssldir/ca.cert -noprompt -storepass $password -keypass $password
+    #keytool -keystore $ssldir/keystore -alias $(hostname) -import -file $ssldir/$(hostname).cert.signed -noprompt -storepass $password -keypass $password
+    #6 copy the keystore and truststore to hadoop conf directory and limit the permissions to only owner and hadoop special group
+    keytool -alias $(hostname) -import --file $ssldir/selfcert.pem -keystore $ssldir/truststore -noprompt -storepass $password
     cp $ssldir/keystore $ssldir/truststore $HADOOP_HOME/etc/hadoop
     chown hdfs:hadoop $HADOOP_HOME/etc/hadoop/keystore $HADOOP_HOME/etc/hadoop/truststore
     chmod 660 $HADOOP_HOME/etc/hadoop/keystore $HADOOP_HOME/etc/hadoop/truststore
