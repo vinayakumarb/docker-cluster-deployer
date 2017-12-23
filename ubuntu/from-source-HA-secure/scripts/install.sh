@@ -80,7 +80,7 @@ function setupSsl(){
     ssldir=$HOME/scripts/ssl
     mkdir -p $ssldir
     #1 Generate the key
-    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -storetype pkcs12 -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
+    keytool -keystore $ssldir/keystore -alias $(hostname) -keyalg RSA -keysize 2048 -validity 7 -genkey -storepass $password -keypass $password -storetype pkcs12 -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
     #2 Export the key as certificate
     keytool -keystore $ssldir/keystore -alias $(hostname) -certreq -storepass $password -keypass $password -file $ssldir/$(hostname).cert
     #3 Add CA certificate to truststore
