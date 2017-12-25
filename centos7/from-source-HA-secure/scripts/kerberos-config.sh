@@ -4,7 +4,7 @@ DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
 REALM="HADOOP.COM"
-KDC_CONF_DIRECTORY=/etc/krb5kdc
+KDC_CONF_DIRECTORY=/var/kerberos/krb5kdc
 myhostname=$(hostname)
 
 COMMAND=$1;
@@ -45,8 +45,12 @@ EOF
   # Check the /etc/hosts mapping
   hostname=$(hostname)
   sed "/$hostname/d" /etc/hosts > /etc/hosts.updated
+  cat /etc/hosts.updated > /etc/hosts
   for host in $(cat $DIR/hosts); do
-    ip=$(getent hosts $host | awk '{ print $1 }')
+    ip=$(getent hosts $host | grep -v "::"| awk '{ print $1 }')
+    if [[ -z "$ip" ]] && [[ "$host" == "$hostname" ]];then
+      ip=$(ifconfig eth0|grep inet|awk '{print $2}')
+    fi
     if [ -z "$ip" ]; then
       echo "$host is not resolvable to ip" >&2
       exit 1;
@@ -175,11 +179,11 @@ EOF
   kadmin.local -q "addprinc -pw hadoop admin/admin"
 
   echo "Starting services"
-  service krb5kdc start
-  service kadmin start
-
   chkconfig krb5kdc on
   chkconfig kadmin on
+
+  systemctl start krb5kdc
+  systemctl start kadmin
 
   for host in $(cat $DIR/hosts); do
     createPrincipals $host

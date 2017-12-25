@@ -8,7 +8,7 @@ RUN yum -y update
 RUN yum install -y wget ntp sudo 
 
 # configure ssh free key access
-RUN yum install -y which openssh-clients openssh-server
+RUN yum install -y which openssh-clients openssh-server openssl-libs openssl
 RUN echo 'root:hortonworks' | chpasswd
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -17,7 +17,7 @@ RUN echo -e "Host *\n StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 #Install JDK
 RUN yum install -y java-1.8.0-openjdk
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0
 ENV PATH $PATH:$JAVA_HOME/bin
 
 # install general tools

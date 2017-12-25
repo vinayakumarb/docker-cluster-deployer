@@ -10,6 +10,38 @@ function usage() {
     echo      "create users and map to specified group"
 }
 
+function setupenvvar() {
+   java_realpath=$(realpath /usr/bin/java)
+   java_bin_dir=$(dirname $java_realpath)
+   JAVA_HOME=$(dirname $java_bin_dir)
+   JAVA_HOME=$(cd $JAVA_HOME && pwd)
+    cat >> /etc/profile <<EOF
+#Java
+export JAVA_HOME=$JAVA_HOME
+export PATH=\$JAVA_HOME/bin:\$PATH
+
+#ZK Env
+export ZK_HOME=$ZK_HOME
+export ZOO_LOG_DIR=$ZOO_LOG_DIR
+export ZOO_LOG4J_PROP=INFO,ROLLINGFILE
+#Hadoop Env
+export HADOOP_HOME=$HADOOP_HOME
+export HADOOP_LOG_DIR=$HADOOP_LOG_DIR
+export PATH=$HADOOP_HOME/bin:\$PATH
+#HDFS Env
+export HDFS_ZKFC_USER=hdfs
+export HDFS_JOURNALNODE_USER=hdfs
+export HDFS_NAMENODE_USER=hdfs
+export HDFS_DATANODE_USER=hdfs
+export HDFS_SECONDARYNAMENODE_USER=hdfs
+#YARN env
+export YARN_LOG_DIR=$YARN_LOG_DIR
+export YARN_RESOURCEMANAGER_USER=yarn
+export YARN_PROXYSERVER_USER=yarn
+export YARN_NODEMANAGER_USER=yarn
+EOF
+}
+
 function createUser(){
     username=$1;
     groupname=$2;
@@ -58,6 +90,54 @@ function setupUsers(){
     done
 }
 
+function initlocalDirs(){
+    #Change the owner of install dirs
+    chown -R zk:hadoop $ZK_HOME
+    chown -R hdfs:hadoop $HADOOP_HOME
+
+    #Create all ZK directories
+    #Create log directories and change ownership
+    mkdir -p $ZOO_LOG_DIR
+    chown -R zk:hadoop $ZOO_LOG_DIR
+    chmod -R 775 $ZOO_LOG_DIR
+    mkdir -p $HADOOP_LOG_DIR
+    chown -R hdfs:hadoop $HADOOP_LOG_DIR
+    chmod -R 775 $HADOOP_LOG_DIR
+    mkdir -p $YARN_LOG_DIR
+    chown -R yarn:hadoop $YARN_LOG_DIR
+    chmod -R 775 $YARN_LOG_DIR
+
+    #Create local dirs for data
+    mkdir -p /data/hdfs/name
+    chown -R hdfs:hadoop /data/hdfs/name
+    chmod -R 700 /data/hdfs/name
+
+    mkdir -p /data/hdfs/data
+    chown -R hdfs:hadoop /data/hdfs/data
+    chmod -R 700 /data/hdfs/data
+
+    mkdir -p /data/hdfs/journal
+    chown -R hdfs:hadoop /data/hdfs/journal
+    chmod -R 700 /data/hdfs/journal
+
+    mkdir -p /data/yarn/nm/localdir
+    mkdir -p /data/yarn/nm/logsdir
+    chown -R yarn:hadoop /data/yarn
+    chmod -R 755 /data/yarn
+
+    chown root:hadoop $HADOOP_HOME/bin/container-executor
+    chmod 6050 $HADOOP_HOME/bin/container-executor
+
+    chown root:hadoop $HADOOP_HOME/etc/hadoop/container-executor.cfg
+    chmod 0400 $HADOOP_HOME/etc/hadoop/container-executor.cfg
+
+    mkdir -p /etc/hadoop
+    chown root:root /etc/hadoop
+    mv $HADOOP_HOME/etc/hadoop/container-executor.cfg /etc/hadoop
+    chown root:root /etc/hadoop/container-executor.cfg
+    chmod 0400 /etc/hadoop/container-executor.cfg
+}
+
 function initHdfsDirs(){
     $HADOOP_HOME/bin/hdfs dfs -chmod 755 /
     $HADOOP_HOME/bin/hdfs dfs -mkdir /tmp
@@ -87,7 +167,7 @@ function setupSsl(){
     ssldir=$HOME/scripts/ssl
     mkdir -p $ssldir
     #1 Generate the key
-    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
+    keytool -keystore $ssldir/keystore -alias $(hostname) -validity 7 -genkey -keyalg RSA -keysize 2048 -storepass $password -keypass $password -dname "CN=$(hostname), OU=ASF, O=ASF, L=BGLR, S=KAR, C=IN"
     #2 Export the key as certificate
     keytool -keystore $ssldir/keystore -alias $(hostname) -certreq -storepass $password -keypass $password -file $ssldir/$(hostname).cert
     #3 Add CA certificate to truststore
@@ -110,11 +190,17 @@ function main(){
         "setupusers")
             setupUsers $@
             ;;
-        "init-hdfs-dirs")
+        "init-local-dirs")
+            initlocalDirs $@
+            ;;
+         "init-hdfs-dirs")
             initHdfsDirs $@
             ;;
         "setup-ssl")
             setupSsl $@
+            ;;
+        "setup-env-var")
+            setupenvvar $@
             ;;
         *)
             echo "ERROR: Unknown command \"$COMMAND\""

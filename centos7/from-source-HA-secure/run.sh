@@ -74,14 +74,16 @@ cat > tmp/Dockerfile << EOF
         rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
         rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
         rm -f /lib/systemd/system/basic.target.wants/*;\
-        rm -f /lib/systemd/system/anaconda.target.wants/*;
+        rm -f /lib/systemd/system/anaconda.target.wants/*;\
+        sed -i 's/\/etc\/ssh\/ssh_host_rsa_key/\/root\/.ssh\/id_rsa/g' /etc/ssh/sshd_config;\
+        systemctl enable sshd
         VOLUME [ "/sys/fs/cgroup" ]
+        RUN yum install -y openssl
 
         #ZK related environments
         ENV ZK_HOME $ZK_HOME
         ENV ZOO_LOG_DIR $ZOO_LOG_DIR
         ENV ZOO_LOG4J_PROP INFO,ROLLINGFILE
-
         #HDFS Related env
         ENV HADOOP_HOME $HADOOP_HOME
         ENV HADOOP_LOG_DIR $HADOOP_LOG_DIR
@@ -97,55 +99,19 @@ cat > tmp/Dockerfile << EOF
         ENV YARN_NODEMANAGER_USER yarn
 
         ADD hadoop $HADOOP_HOME
-
         ADD zk $ZK_HOME
         ADD scripts /root/scripts
         ENV PATH "\$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
 
+        ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0
+        ENV PATH "\$PATH:\$JAVA_HOME/bin"
+
         #Create users
         RUN /bin/bash /root/scripts/install.sh setupusers "--group=hadoop" "--users=zk,hdfs,mapred,yarn"
+        RUN /bin/bash /root/scripts/install.sh setup-env-var
+        RUN /bin/bash /root/scripts/install.sh init-local-dirs
 
-        RUN chown -R zk:hadoop $ZK_HOME
-        RUN chown -R hdfs:hadoop $HADOOP_HOME
-
-        #Create log directories and change ownership
-        RUN mkdir -p $ZOO_LOG_DIR
-        RUN chown -R zk:hadoop $ZOO_LOG_DIR
-        RUN chmod -R 775 $ZOO_LOG_DIR
-        RUN mkdir -p $HADOOP_LOG_DIR
-        RUN chown -R hdfs:hadoop $HADOOP_LOG_DIR
-        RUN chmod -R 775 $HADOOP_LOG_DIR
-        RUN mkdir -p $YARN_LOG_DIR
-        RUN chown -R yarn:hadoop $YARN_LOG_DIR
-        RUN chmod -R 775 $YARN_LOG_DIR
-
-        #Create local dirs for data
-        RUN mkdir -p /data/hdfs/name
-        RUN chown -R hdfs:hadoop /data/hdfs/name
-        RUN chmod -R 700 /data/hdfs/name
-
-        RUN mkdir -p /data/hdfs/data
-        RUN chown -R hdfs:hadoop /data/hdfs/data
-        RUN chmod -R 700 /data/hdfs/data
-
-        RUN mkdir -p /data/hdfs/journal
-        RUN chown -R hdfs:hadoop /data/hdfs/journal
-        RUN chmod -R 700 /data/hdfs/journal
-
-        RUN mkdir -p /data/yarn/nm/localdir
-        RUN mkdir -p /data/yarn/nm/logsdir
-        RUN chown -R yarn:hadoop /data/yarn
-        RUN chmod -R 755 /data/yarn
-
-        RUN chown root:hadoop $HADOOP_HOME/bin/container-executor
-        RUN chmod 6050 $HADOOP_HOME/bin/container-executor
-
-        RUN chown root:hadoop $HADOOP_HOME/etc/hadoop/container-executor.cfg
-        RUN chmod 0400 $HADOOP_HOME/etc/hadoop/container-executor.cfg
-
-        ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk.x86_64
-        ENV PATH $JAVA_HOME/bin:$PATH
-
+        CMD ["/usr/sbin/init"]
         EXPOSE 22 2181 9820 8045 8088 8090 8091 9870 9871 9864 9865 9866 9867 
 EOF
         echo "Building image for hadoop"
@@ -223,7 +189,7 @@ do
     dn_https_port=$(expr $port_addition + 9865)
     rm_http_port=$(expr $port_addition + 8088)
     rm_https_port=$(expr $port_addition + 8090)
-    container_id=$(docker run -p $nn_http_port:9870 -p $nn_https_port:9871 -p $dn_http_port:9864 -p $dn_https_port:9865 -p $rm_http_port:8088 -p $rm_https_port:8090 -d --net hadoopsecure.com --name vinay-hadoop-master$i -h vinay-hadoop-master$i --network-alias=vinay-hadoop-master$i hadoop-centos7-secure)
+    container_id=$(docker run -p $nn_http_port:9870 -p $nn_https_port:9871 -p $dn_http_port:9864 -p $dn_https_port:9865 -p $rm_http_port:8088 -p $rm_https_port:8090 --privileged -d --net hadoopsecure.com --name vinay-hadoop-master$i -h vinay-hadoop-master$i --network-alias=vinay-hadoop-master$i hadoop-centos7-secure)
     containerIds[$i]=${container_id:0:12};
     echo "vinay-hadoop-master$i" >> hosts
 done
@@ -234,8 +200,8 @@ do
     port_addition=$(expr $j \* 10000)
     dn_http_port=$(expr $port_addition + 9864)
     dn_https_port=$(expr $port_addition + 9865)
-    container_id=$(docker run -p $dn_http_port:9864 -p $dn_https_port:9865 -d --net hadoopsecure.com --name vinay-hadoop-slave$i -h vinay-hadoop-slave$i --network-alias=vinay-hadoop-slave$i hadoop-centos7-secure)
-    containerIds[j]=${container_id:0:12};
+    container_id=$(docker run -p $dn_http_port:9864 -p $dn_https_port:9865 --privileged  -d --net hadoopsecure.com --name vinay-hadoop-slave$i -h vinay-hadoop-slave$i --network-alias=vinay-hadoop-slave$i hadoop-centos7-secure)
+    containerIds[$j]=${container_id:0:12};
     echo "vinay-hadoop-slave$i" >> hosts
 done
 
@@ -251,6 +217,12 @@ docker cp hosts ${containerIds[1]}:$HADOOP_HOME/etc/hadoop/workers
 docker cp hosts ${containerIds[1]}:$HADOOP_HOME/etc/hadoop/slaves
 docker cp hosts ${containerIds[2]}:$HADOOP_HOME/etc/hadoop/workers
 docker cp hosts ${containerIds[2]}:$HADOOP_HOME/etc/hadoop/slaves
+
+sleep 3
+#Setup ssl in all nodes
+for host in ${containerIds[*]}; do
+    docker exec -it $host /bin/rm -rf /run/nologin
+done
 
 ##Install kerberos
 ##It creates all principals and distribute to all nodes
