@@ -15,11 +15,11 @@
 <!-- Security configurations -->
 <property>
     <name>hadoop.security.authentication</name>
-    <value>kerberos</value>
+    <value>simple</value>
 </property>
 <property>
     <name>hadoop.security.authorization</name>
-    <value>true</value>
+    <value>false</value>
 </property>
 <property>
     <name>hadoop.rpc.protection</name>

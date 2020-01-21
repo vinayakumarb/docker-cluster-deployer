@@ -51,12 +51,12 @@ docker network create ambari 2> /dev/null
 docker rm -f $(docker ps -a -q -f "name=$NODE_NAME_PREFIX") 2>&1 > /dev/null
 
 # launch containers
-master_id=$(docker run -d --net caochong -p $PORT:8080 --name $NODE_NAME_PREFIX-0 --network-alias=node0 caochong-ambari)
+master_id=$(docker run -d --net ambari -p $PORT:8080 --name $NODE_NAME_PREFIX-0 --network-alias=node0 caochong-ambari)
 #echo ${master_id:0:12} > hosts
 echo "node0" > hosts
 for i in $(seq $((N-1)));
 do
-    container_id=$(docker run -d --net caochong --name $NODE_NAME_PREFIX-$i --network-alias=node$i caochong-ambari)
+    container_id=$(docker run -d --net ambari --name $NODE_NAME_PREFIX-$i --network-alias=node$i caochong-ambari)
     #echo ${container_id:0:12} >> hosts
     echo "node$i" >> hosts
 done

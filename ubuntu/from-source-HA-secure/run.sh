@@ -7,7 +7,7 @@ DIR=$(cd $DIR && pwd);
 HADOOP_SRC_HOME=${HADOOP_SRC_HOME:-/usr1/code/hadoop/trunk}
 HADOOP_VERSION=$(cd $HADOOP_SRC_HOME && mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
 
-ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.11.tar.gz
+ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.13.tar.gz
 
 HADOOP_MAJOR_VERSION=$(echo $HADOOP_VERSION|cut -d. -f1)
 
@@ -48,7 +48,7 @@ function build_hadoop() {
         # Prepare hadoop packages and configuration files
         if [ "$SKIP_MVN" == "false" ]; then
           cur=$(pwd)
-          cd $HADOOP_SRC_HOME && mvn clean package -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade -Dcontainer-executor.conf.dir=/etc/hadoop/ || exit 1
+          cd $HADOOP_SRC_HOME && mvn clean install -Pnative -DskipTests -Dtar -Pdist -Dmaven.javadoc.skip=true -Dsource.skip=true -DskipShade -Dcontainer-executor.conf.dir=/etc/hadoop/ || exit 1
           cd $cur;
         fi
         HADOOP_TARGET_SNAPSHOT=$(hadoop_target)
@@ -57,8 +57,8 @@ function build_hadoop() {
         cp -r ./scripts tmp
 
         tar -xf $ZK_INSTALLER_PATH -C tmp
-        cp zkconf/zoo.cfg tmp/zookeeper-3.4.11/conf
-        mv tmp/zookeeper-3.4.11 tmp/zk
+        cp zkconf/zoo.cfg tmp/zookeeper-3.4.13/conf
+        mv tmp/zookeeper-3.4.13 tmp/zk
 
         # Generate docker file for hadoop
 cat > tmp/Dockerfile << EOF

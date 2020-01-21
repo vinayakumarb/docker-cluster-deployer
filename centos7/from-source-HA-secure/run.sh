@@ -5,8 +5,8 @@ DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
 HADOOP_SRC_HOME=/usr1/code/hadoop/trunk
-HADOOP_VERSION=3.1.0-SNAPSHOT
-ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.11.tar.gz
+HADOOP_VERSION=3.3.0-SNAPSHOT
+ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.13.tar.gz
 
 HADOOP_MAJOR_VERSION=$(echo $HADOOP_VERSION|cut -d. -f1)
 
@@ -60,8 +60,8 @@ function build_hadoop() {
         cp -r ./scripts tmp
 
         tar -xf $ZK_INSTALLER_PATH -C tmp
-        cp zkconf/zoo.cfg tmp/zookeeper-3.4.11/conf
-        mv tmp/zookeeper-3.4.11 tmp/zk
+        cp zkconf/zoo.cfg tmp/zookeeper-3.4.13/conf
+        mv tmp/zookeeper-3.4.13 tmp/zk
 
         # Generate docker file for hadoop
 cat > tmp/Dockerfile << EOF

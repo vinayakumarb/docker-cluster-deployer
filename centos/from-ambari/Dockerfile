@@ -27,7 +27,7 @@ RUN echo -e "[program:ntpd]\ncommand=/sbin/service ntpd start" >> /etc/superviso
 #RUN wget -O /etc/yum.repos.d/ambari.repo http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/latest/trunk/ambaribn.repo
 
 # to test public release 2.2.2
-RUN wget -O /etc/yum.repos.d/ambari.repo http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.1.0/ambari.repo
+RUN wget -O /etc/yum.repos.d/ambari.repo http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.6.2.2/ambari.repo
 
 RUN yum install ambari-server -y
 RUN ambari-server setup -s
