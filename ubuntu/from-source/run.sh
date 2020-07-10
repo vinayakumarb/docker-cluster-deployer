@@ -80,7 +80,7 @@ function build_spark() {
         mv tmp/*myspark tmp/spark
 
         # Generate docker file for hadoop
-cat > tmp/Dockerfile << EOF
+cat > tmp/runner-Dockerfile << EOF
         FROM caochong-hadoop
 
         ENV SPARK_HOME /spark

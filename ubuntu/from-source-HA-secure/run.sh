@@ -4,12 +4,9 @@ SCRIPT_NAME=$(basename $BASH_SOURCE)
 DIR=$(dirname $BASH_SOURCE);
 DIR=$(cd $DIR && pwd);
 
-HADOOP_SRC_HOME=${HADOOP_SRC_HOME:-/usr1/code/hadoop/trunk}
-HADOOP_VERSION=$(cd $HADOOP_SRC_HOME && mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
+HADOOP_SRC_HOME=${HADOOP_SRC_HOME:-$HOME/code/hadoop}
 
-ZK_INSTALLER_PATH=/usr1/code/hadoop/rel/zookeeper-3.4.13.tar.gz
-
-HADOOP_MAJOR_VERSION=$(echo $HADOOP_VERSION|cut -d. -f1)
+ZK_INSTALLER_PATH=$HOME/releases/zookeeper-3.4.14.tar.gz
 
 let N=3
 SKIP_MVN=false
@@ -31,6 +28,7 @@ function usage() {
 
 # @Return the hadoop distribution package for deployment
 function hadoop_target() {
+    HADOOP_VERSION=$(cd $HADOOP_SRC_HOME && mvn help:evaluate -Dexpression=project.version | grep -v "\["|grep -v "Download")
     echo $(find $HADOOP_SRC_HOME/hadoop-dist/target/ -type d -name 'hadoop-'$HADOOP_VERSION)
 }
 
@@ -56,9 +54,8 @@ function build_hadoop() {
         cp hadoopconf/* tmp/hadoop/etc/hadoop/
         cp -r ./scripts tmp
 
-        tar -xf $ZK_INSTALLER_PATH -C tmp
-        cp zkconf/zoo.cfg tmp/zookeeper-3.4.13/conf
-        mv tmp/zookeeper-3.4.13 tmp/zk
+        mkdir -p tmp/zk && tar -xf $ZK_INSTALLER_PATH -C tmp/zk --strip-components=1
+        cp zkconf/zoo.cfg tmp/zk/conf
 
         # Generate docker file for hadoop
 cat > tmp/Dockerfile << EOF

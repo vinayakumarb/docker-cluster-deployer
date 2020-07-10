@@ -13,7 +13,7 @@ function usage() {
 function createUser(){
     username=$1;
     groupname=$2;
-    useradd -d /home/$username -m -g $groupname $username
+    useradd -d /home/$username -m -g $groupname -s /bin/bash $username
 
     su -c 'ssh-keygen -t rsa -f ~/.ssh/id_rsa -N "" \
     && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys \

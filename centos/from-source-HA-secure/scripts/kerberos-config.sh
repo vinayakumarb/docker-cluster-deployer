@@ -9,7 +9,6 @@ myhostname=$(hostname)
 
 COMMAND=$1;
 KDC_SERVER=$2;
-USER=$3;
 shift 2
 HOSTNAME=`hostname`
 #
@@ -41,19 +40,20 @@ cat >/etc/krb5.conf <<EOF
     ${HOSTNAME} = ${REALM}
 EOF
 
-  #Create /etc/hosts mapping of all machines
-  # Check the /etc/hosts mapping
-  hostname=$(hostname)
-  sed "/$hostname/d" /etc/hosts > /etc/hosts.updated
-  for host in $(cat $DIR/hosts); do
-    ip=$(getent hosts $host | awk '{ print $1 }')
-    if [ -z "$ip" ]; then
-      echo "$host is not resolvable to ip" >&2
-      exit 1;
-    fi
-    echo "$ip    $host" >> /etc/hosts.updated
-  done
-  cat /etc/hosts.updated > /etc/hosts
+# This part is not required for overlay networks in docker. They are DNS enabled.
+#  #Create /etc/hosts mapping of all machines
+#  # Check the /etc/hosts mapping
+#  hostname=$(hostname)
+#  sed "/$hostname/d" /etc/hosts > /etc/hosts.updated
+#  for host in $(cat $DIR/hosts); do
+#    ip=$(getent hosts $host | awk '{ print $1 }')
+#    if [ -z "$ip" ]; then
+#      echo "$host is not resolvable to ip" >&2
+#      exit 1;
+#    fi
+#    echo "$ip    $host" >> /etc/hosts.updated
+#  done
+#  cat /etc/hosts.updated > /etc/hosts
 
 }
 
