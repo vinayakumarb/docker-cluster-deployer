@@ -1,0 +1,10 @@
+ARG HADOOP_VERSION=latest
+ARG USER_NAME=hadoop;
+FROM hadoop-${USER_NAME}:${HADOOP_VERSION}
+
+ADD hive /hive
+ENV HIVE_HOME=/hive
+ENV PATH=$PATH:$HIVE_HOME/bin
+RUN chown ${USER_NAME}:users -R /hive
+
+EXPOSE 10000 10001

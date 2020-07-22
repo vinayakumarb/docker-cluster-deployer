@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property>
+		<name>dfs.replication</name>
+		<value>3</value>
+	</property>
+	<property>
+		<name>dfs.namenode.handler.count</name>
+		<value>10</value>
+	</property>
+<!--Name node configurations -->
+	<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>/hadoop/dfs/name</value>
+	</property>
+<!--Data node configurations -->
+	<property>
+		<name>dfs.datanode.rpc-address</name>
+		<value>${machine-hostname}:9866</value>
+	</property>
+	<property>
+		<name>dfs.datanode.http-address</name>
+		<value>${machine-hostname}:9864</value>
+	</property>
+	<property>
+		<name>dfs.datanode.ipc-address</name>
+		<value>${machine-hostname}:9867</value>
+	</property>
+	<property>
+		<name>dfs.datanode.data.dir</name>
+		<value>/hadoop/dfs/data</value>
+	</property>
+</configuration>
