@@ -8,7 +8,13 @@ export DERBY_PACKAGE=/home/vinay/releases/db-derby-10.10.2.0-bin.tar.gz
 export HIVE_VERSION=3.1.2
 export HIVE_PACKAGE=/home/vinay/releases/apache-hive-3.1.2-bin.tar.gz
 
+export OLK_VERSION=1.4.0-SNAPSHOT
+export OLK_PACKAGE=/home/vinay/releases/openlookeng-$OLK_VERSION.tar.gz
 
 export USER_NAME=${USER}
 export USER_ID=$(id -u "${USER_NAME}")
 export GROUP_ID=$(id -g "${USER_NAME}")
+
+#Whether to run all services inside a single container.
+#If enabled, cannot scale datanodes to multiple instances if required.
+export EMBED_IN_SINGLE_CONTAINER=true

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hive-hadoop</value>
+    </property>
+    <property>
+        <name>hadoop.caller.context.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+	<name>hadoop.proxyuser.${user.name}.users</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.${user.name}.groups</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.${user.name}.hosts</name>
+        <value>*</value>
+    </property>
+</configuration>

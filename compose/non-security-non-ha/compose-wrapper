@@ -4,4 +4,11 @@ set -e
 
 source $DIR/config
 
-docker-compose $@
+COMPOSE_FILE="docker-compose.yaml"
+
+if [ "${EMBED_IN_SINGLE_CONTAINER}" == "true" ]; then
+   # In case of single container hive needs both derby and hadoop
+   COMPOSE_FILE="docker-compose_single_container_hadoop.yaml"
+fi
+
+docker-compose -f $COMPOSE_FILE $@

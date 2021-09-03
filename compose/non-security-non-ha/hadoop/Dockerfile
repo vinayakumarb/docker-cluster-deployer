@@ -13,3 +13,5 @@ ENV PATH $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 RUN chown ${USER_NAME}:users -R /hadoop
 
 RUN hdfs namenode -format
+
+EXPOSE 9820 9870 9864 9866 9867
