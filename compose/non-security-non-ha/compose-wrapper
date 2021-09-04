@@ -4,11 +4,17 @@ set -e
 
 source $DIR/config
 
-COMPOSE_FILE="docker-compose.yaml"
+BASE_COMPOSE_FILE="docker-compose.yaml"
 
 if [ "${EMBED_IN_SINGLE_CONTAINER}" == "true" ]; then
    # In case of single container hive needs both derby and hadoop
-   COMPOSE_FILE="docker-compose_single_container_hadoop.yaml"
+   BASE_COMPOSE_FILE="docker-compose_single_container_hadoop.yaml"
 fi
 
-docker-compose -f $COMPOSE_FILE $@
+COMPOSE_ARGS="-f ${BASE_COMPOSE_FILE}"
+
+if [ "${OLK_ENABLED}" == "true" ]; then
+   COMPOSE_ARGS="${COMPOSE_ARGS} -f docker-compose_olk.yaml"
+fi
+
+docker-compose $COMPOSE_ARGS $@

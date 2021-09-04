@@ -1,0 +1,41 @@
+{
+  "rootGroups": [
+    {
+      "name": "global",
+      "softMemoryLimit": "1MB",
+      "hardConcurrencyLimit": 100,
+      "maxQueued": 1000,
+      "softCpuLimit": "1h",
+      "hardCpuLimit": "1d"
+    },
+    {
+      "name": "ui-source",
+      "softMemoryLimit": "300MB",
+      "hardConcurrencyLimit": 10,
+      "maxQueued": 20
+    },
+    {
+      "name": "ui",
+      "softMemoryLimit": "100MB",
+      "hardConcurrencyLimit": 1,
+      "maxQueued": 4
+    }
+  ],
+  "selectors": [
+    {
+      "user" : "lk",
+      "source": "ui",
+      "group": "ui"
+    },
+    {
+      "user" : "lk",
+      "source": "ui-server",
+      "group": "ui-source"
+    },
+    {
+      "group": "global"
+    }
+  ],
+  "cpuQuotaPeriod": "1h"
+}
+

@@ -15,14 +15,19 @@
 
 version: "3.2"
 services:
-  hive-hadoop:
-    image: hive-hadoop-${USER}:${HIVE_VERSION}-${HADOOP_VERSION}
+  # It would be reasonable to keep this as a separate service to allow it to rebuild if required to change any config.
+  olk:
+    image: olk-${USER_NAME}:${OLK_VERSION}
     user: ${USER}
-    hostname: hive-hadoop
-    container_name: hive-hadoop
-    command: ["start-services.sh"]
+    hostname: olk
+    container_name: olk
+    command: ["launcher", "run"]
+    depends_on: 
+      - ${OLK_DEPENDENCY}
     networks:
       - hadoop
+    ports: 
+      - 9080:9080
 
 networks:
   hadoop:

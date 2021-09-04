@@ -9,9 +9,12 @@ COMPONENTS=(base
  derby
  hive)
 
+if [ "${OLK_ENABLED}" == "true" ]; then
+    COMPONENTS=(${COMPONENTS[@]} olk)
+fi
 
 for comp in "${COMPONENTS[@]}" ; do
     cd $DIR/$comp;
-    bash -x $DIR/$comp/build.sh
+    bash $DIR/$comp/build.sh
     cd $DIR;
 done
