@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:focal
 
 ARG USER_NAME=hadoop;
 ARG USER_ID=1001;
@@ -29,7 +29,7 @@ RUN echo "[program:sshd]" >> /etc/supervisor/supervisord.conf \
     && echo "command=/usr/sbin/sshd -D" >> /etc/supervisor/supervisord.conf
 
 # install general tools
-RUN apt-get install -y iproute2 vim inetutils-ping
+RUN apt-get install -y iproute2 vim inetutils-ping python
 RUN apt-get clean
 
 RUN rm -f /var/log/faillog /var/log/lastlog
